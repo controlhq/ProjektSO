@@ -62,6 +62,32 @@ void semafor_signal(int semid, int sem_num){ // funkcja do semafor V
     }
 }
 
+void koniec() //Funkcja zwalniająca zasoby
+{
+    // Zwalnianie kolejki komunikatów
+    //if (msgctl(msgID, IPC_RMID, NULL) == -1) {
+    //    perror("Blad przy zwalnianiu kolejki komunikatow");
+    //} else {
+    //    printf("Kolejka komunikatow zostala pomyslnie zwolniona\n");
+    //}
+
+    // Zwalnianie pamięci dzielonej
+    if (shmctl(shmID, IPC_RMID, NULL) == -1) {
+        perror("Blad przy zwalnianiu pamieci dzielonej");
+    } else {
+        printf("Pamiec dzielona zostala pomyslnie zwolniona\n");
+    }
+
+    // Zwalnianie semaforów
+    if (semctl(semID, 0, IPC_RMID) == -1) {
+        perror("Blad przy zwalnianiu semaforow");
+    } else {
+        printf("Semafory zostaly pomyslnie zwolnione\n");
+    }
+
+    printf("Zasoby zostaly zwolnione\n");
+}
+
 int main(){
   srand(time(NULL));
   key_t kluczm, kluczs, kluczk;
@@ -88,7 +114,7 @@ int main(){
     exit(EXIT_FAILURE);
   }
 
-  semID=semget(kluczs,3,IPC_CREAT|0666); 
+  semID=semget(kluczs,4,IPC_CREAT|0666); 
   if(semID==-1){
     perror("Blad tworzenia semaforow w Dziekanie\n");
     exit(EXIT_FAILURE);
@@ -96,6 +122,7 @@ int main(){
   
   //dziekan wychodzi przed budynek i czeka, aż nie zbiorą się wszyscy studenci, żeby potem ogłosić komunikat 
   //który kierunek przystępuje do egzaminu
+  
   while(shm_ptr->students_count != shm_ptr->ilosc_studentow){
     sleep(5);
   }
@@ -112,6 +139,8 @@ int main(){
   }
 
   printf("Dziekan zakończył wysyłanie sygnałów. Wszyscy studenci poinformowani.\n");
+  
+  
 
   return 0;
 }

@@ -13,9 +13,19 @@
 #include <sys/types.h>
 #include <time.h>
 
+#define T 600
 #define K 5                 // ilość kierunków na wydziale X
 #define MAX_STUDENTOW 800   // maksymalna ilość studentów 2 roku (160*5)
-#define MAX_STUD 160        // do pamieci wspódzielonej maksymalna ilosc studentow 
+#define MAX_STUD 160        // do pamieci wspódzielonej maksymalna ilosc studentow
+
+//indentyfikatory komunikatów dla kolejnych czlonków komisji A
+#define PKA 449
+#define CZ2KA 450
+#define CZ3KA 451
+//indentyfikatory komunikatów dla kolejnych czlonków komisji B
+#define PKB 452
+#define CZ2KB 453
+#define CZ3KB 454
 
 int shmID, semID, msgID;  //ID semafora, kolejki kom. pamieci dzielonej
 
@@ -45,6 +55,14 @@ typedef struct{ //struktura komunikatu
     int pidStudenta;
     int czy_zdane;
 }Kom_bufor;
+
+typedef struct{
+    long mtype;  
+    int pid_studenta;  
+    int IDczlonkakomisji;    
+    int i;
+    int odpowiedz;
+}Pytanie;
 
 void semafor_wait(int semid, int sem_num){ //funkcja do semafor P
     struct sembuf sem;
@@ -126,6 +144,95 @@ void Sendmsg(int msgid, long mtype, int student_pid, float grade, int zdane) {
 
 }
 
+void odbierz_komunikat_przepisanie(){
+    Kom_bufor msgKA;
+
+    // Odbieranie komunikatu z kolejki o mtype = getpid()
+    if (msgrcv(msgID, &msgKA, sizeof(Kom_bufor) - sizeof(long), getpid(), 0) == -1) {
+        perror("Blad msgrcv w komisji\n");
+        exit(EXIT_FAILURE);
+    }
+    
+}
+
+void Odbieranie_odpowiadanie(){
+    int pytaniaodebrane=0;
+    Pytanie pyt1;
+    Pytanie pyt2;
+    Pytanie pyt3;
+
+    //czeka na odbiór wszystkich 3 wiadomości
+    while (pytaniaodebrane < 3) {
+        Pytanie msg;
+        // Próba odebrania wiadomości
+        if (msgrcv(msgID, &msg, sizeof(Pytanie) - sizeof(long), getpid(), IPC_NOWAIT) == -1) {
+            perror("Blad msgrcv w studencie");
+            exit(EXIT_FAILURE); 
+        } else {
+            // Zidentyfikowanie wiadomości od którego członka pytanie
+            if (msg.IDczlonkakomisji == PKA) {
+                pyt1 = msg;
+            } else if (msg.IDczlonkakomisji == CZ2KA) {
+                pyt2 = msg;
+            } else  {
+                pyt3 = msg;
+            } 
+            pytaniaodebrane++;
+        }
+        
+        
+    }
+
+    //po otrzymaniu pytań, student przygotowuje się przez T = 10 minut do odpowiedzi
+    //sleep(T);
+
+    //Sprawdza, czy jest wolne miejsce (czy nikt nie siedzi) przed komisja
+    semafor_wait(semID, 3);
+
+    //najpierw odpowiada przewodniczacemu
+    int odp_przewodniczacy = rand()%6+5;
+    pyt1.odpowiedz=odp_przewodniczacy;
+    pyt1.mtype = PKA;
+    pyt1.pid_studenta=getpid();
+    if (msgsnd(msgID, &pyt1, sizeof(Pytanie) - sizeof(long), IPC_NOWAIT) == -1) {
+        //tutaj jak kolejka będzie przepelniona to errno zwróci EAGAIN -> zrobić do tego obsluge potem
+        perror("Blad msgsnd w studencie");
+        exit(EXIT_FAILURE);
+    }
+
+    //teraz odpowiadam czlonkowi 2
+    int odp_czl2 = rand()%6+5;
+    pyt2.odpowiedz=odp_czl2;
+    pyt2.mtype = CZ2KA;
+    pyt2.pid_studenta=getpid();
+    if (msgsnd(msgID, &pyt2, sizeof(Pytanie) - sizeof(long), IPC_NOWAIT) == -1) {
+        //tutaj jak kolejka będzie przepelniona to errno zwróci EAGAIN -> zrobić do tego obsluge potem
+        perror("Blad msgsnd w studencie");
+        exit(EXIT_FAILURE);
+    }
+
+    //teraz odpowiadam czlonkowi 3
+    int odp_czl3 = rand()%6+5;
+    pyt3.odpowiedz=odp_czl3;
+    pyt3.mtype = CZ3KA;
+    pyt3.pid_studenta=getpid();
+    if (msgsnd(msgID, &pyt3, sizeof(Pytanie) - sizeof(long), IPC_NOWAIT) == -1) {
+        //tutaj jak kolejka będzie przepelniona to errno zwróci EAGAIN -> zrobić do tego obsluge potem
+        perror("Blad msgsnd w studencie");
+        exit(EXIT_FAILURE);
+    }
+
+    //czeka na wiadomość od przewodniczącego o ocenie 
+
+    //tutaj po udzieleniu odpowiedzi wychodzi z pokoju i zwalnia kolejke do komisji
+    semafor_signal(semID,3);
+
+    //sprawdza ocene i jak zdał, to idzie dalej, jak nie zdał to exituje
+
+
+}
+
+
 
 void koniec() //Funkcja zwalniająca zasoby
 {
@@ -183,7 +290,7 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    semID=semget(kluczs,3,IPC_CREAT|0666); 
+    semID=semget(kluczs,4,IPC_CREAT|0666); 
     if(semID==-1){
         perror("Blad tworzenia semaforow \n");
         exit(EXIT_FAILURE);
@@ -205,6 +312,12 @@ int main()
     if((semctl(semID,2,SETVAL,3))== -1)
     {
         perror("Blad przy inicjalizacji semafora 2\n");
+        exit(EXIT_FAILURE);
+    }
+    //to jest kolejka do odpowiedzi w pokoju komisji A
+    if((semctl(semID,3,SETVAL,1))== -1)
+    {
+        perror("Blad przy inicjalizacji semafora 3\n");
         exit(EXIT_FAILURE);
     }
 
@@ -288,11 +401,17 @@ int main()
                     Sendmsg(msgID, 5, getpid(), shm_ptr->students[student_id].ocena_praktyka,shm_ptr->students[student_id].powtarza_egzamin);
 
                     //czeka na komunikat o tym, że zdał i może  iść do komisji B
+                    odbierz_komunikat_przepisanie();
+                   
 
                 }
                 else{
-                    // wyślij komunikat do każdego członka komisji, że nie powtarzasz egzaminu
-                    // i tutaj wykonaj egzamin 1
+                    // wyślij komunikat do każdego członka komisji, chcesz zdawac egzamin
+                    Sendmsg(msgID, PKA,getpid(),shm_ptr->students[student_id].ocena_praktyka,shm_ptr->students[student_id].powtarza_egzamin);
+                    Sendmsg(msgID, CZ2KA,getpid(),shm_ptr->students[student_id].ocena_praktyka,shm_ptr->students[student_id].powtarza_egzamin);
+                    Sendmsg(msgID, CZ3KA,getpid(),shm_ptr->students[student_id].ocena_praktyka,shm_ptr->students[student_id].powtarza_egzamin);
+                    
+                    //funkcja która symuluje dostanie pytań, czekanie 10 minut(okreslony czas i wyslanie odpowiedzi)
 
                 }
 
