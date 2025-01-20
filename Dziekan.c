@@ -23,8 +23,14 @@ typedef struct {            // struktura reprezentująca każdego studenta
     int Kierunek;
     int powtarza_egzamin;   // flaga, jeśli student powtarza egzamin (1 - tak,0 - nie)
     int zaliczona_praktyka; // flaga, czy czesc praktyczna zostala zaliczona
-    float ocena_praktyka;
-    float ocena_teoria;
+    float ocena_praktykaP;
+    float ocena_praktyka2;
+    float ocena_praktyka3;
+    float ocena_praktykasr;
+    float ocena_teoriaP;
+    float ocena_teoria2;
+    float ocena_teoria3;
+    float ocena_teoriasr;
 }Student;
 
 typedef struct {
@@ -32,6 +38,7 @@ typedef struct {
     int ilosc_studentow;         // a to jest ilość wylosowanych studentów(tak jakby warunek stopu)
     int wybrany_kierunek;
     int index;
+    int ilosc_studentow_na_wybranym_kierunku;
     Student students[MAX_STUD];  // Tablica struktur Student
 } SHARED_MEMORY;
 
@@ -124,11 +131,11 @@ int main(){
   //który kierunek przystępuje do egzaminu
   
   while(shm_ptr->students_count != shm_ptr->ilosc_studentow){
-    sleep(5);
+    usleep(10000);
   }
 
   //jak wszyscy studenci się zebrali, to dziekan ogłasza który kierunek ma egzamin
-  int w_kierunek = rand() % 5 +1;
+  int w_kierunek = 2;
   shm_ptr->wybrany_kierunek = w_kierunek;
   
 
@@ -138,7 +145,7 @@ int main(){
     semafor_signal(semID,1);
   }
 
-  printf("Dziekan zakończył wysyłanie sygnałów. Wszyscy studenci poinformowani.\n");
+  //dziekan czeka na komunikat z ocenami 
   
   
 

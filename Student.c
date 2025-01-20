@@ -35,8 +35,14 @@ typedef struct {            // struktura reprezentująca każdego studenta
     int Kierunek;
     int powtarza_egzamin;   // flaga, jeśli student powtarza egzamin (1 - tak,0 - nie)
     int zaliczona_praktyka; // flaga, czy czesc praktyczna zostala zaliczona
-    float ocena_praktyka;
-    float ocena_teoria;
+    float ocena_praktykaP;
+    float ocena_praktyka2;
+    float ocena_praktyka3;
+    float ocena_praktykasr;
+    float ocena_teoriaP;
+    float ocena_teoria2;
+    float ocena_teoria3;
+    float ocena_teoriasr;
 }Student;
 
 typedef struct {
@@ -44,8 +50,14 @@ typedef struct {
     int ilosc_studentow;         // a to jest ilość wylosowanych studentów(tak jakby warunek stopu)
     int wybrany_kierunek;
     int index;
+    int ilosc_studentow_na_wybranym_kierunku;
     Student students[MAX_STUD];  // Tablica struktur Student
 } SHARED_MEMORY;
+
+typedef struct{
+    long mtype;
+    float ocena;
+}Wiadomosc_zocena;
 
 SHARED_MEMORY *shm_ptr; //wskaźnik do mapowania wspólnej pamięci
 
@@ -54,6 +66,7 @@ typedef struct{ //struktura komunikatu
 	float ocena;
     int pidStudenta;
     int czy_zdane;
+    int id_studenta;
 }Kom_bufor;
 
 typedef struct{
@@ -91,6 +104,7 @@ void semafor_signal(int semid, int sem_num){ // funkcja do semafor V
 
 void inicjalizacja_studenta(int student_id, int kierunek, int powtarzaEgzamin) {
     //Przygotowuje nowego studenta
+    float ocena_poz = losuj_ocene_pozytywna();;
     Student student;
     student.id = student_id;
     student.pid_studenta = getpid();
@@ -98,13 +112,27 @@ void inicjalizacja_studenta(int student_id, int kierunek, int powtarzaEgzamin) {
     student.powtarza_egzamin = powtarzaEgzamin;
     if(powtarzaEgzamin == 1){
         student.zaliczona_praktyka = 1;
-        student.ocena_praktyka = losuj_ocene_pozytywna();
+        student.ocena_praktykasr = ocena_poz;
+        student.ocena_praktyka2 = ocena_poz;
+        student.ocena_praktyka3 = ocena_poz;
+        student.ocena_praktykaP = ocena_poz;
+        student.ocena_teoria2 =0.0;
+        student.ocena_teoria3=0.0;
+        student.ocena_teoriaP=0.0;
+        student.ocena_teoriasr=0.0;
     }else{
         student.zaliczona_praktyka = 0;
-        student.ocena_praktyka= 0.0;
+        student.ocena_praktykasr= 0.0;
+        student.ocena_praktyka2 =0.0;
+        student.ocena_praktyka3=0.0;
+        student.ocena_praktykaP=0.0;
+        student.ocena_teoria2 =0.0;
+        student.ocena_teoria3=0.0;
+        student.ocena_teoriaP=0.0;
+        student.ocena_teoriasr=0.0;
     }
-
-    student.ocena_teoria =0.0;
+    
+    
     
     int index1 = shm_ptr->index;
     if(index1 < MAX_STUD){
@@ -128,12 +156,13 @@ int losuj_ilosc_studentow() {
     return (rand() % (160 - 80 + 1)) + 80; // losuje liczbe studentów w zakresie 80<=Ni<=160
 }
 
-void Sendmsg(int msgid, long mtype, int student_pid, float grade, int zdane) {
+void Sendmsg(int msgid, long mtype, int student_pid, float grade, int zdane, int id) {
     Kom_bufor msg;
     msg.mtype = mtype;
     msg.pidStudenta = student_pid;
     msg.ocena = grade;
     msg.czy_zdane = zdane;
+    msg.id_studenta = id;
 
     // Wysyłanie wiadomości
     if (msgsnd(msgid, &msg, sizeof(Kom_bufor) - sizeof(long), IPC_NOWAIT) == -1) {
@@ -155,7 +184,7 @@ void odbierz_komunikat_przepisanie(){
     
 }
 
-void Odbieranie_odpowiadanie(){
+void Egzamin_komisjaA(){
     int pytaniaodebrane=0;
     Pytanie pyt1;
     Pytanie pyt2;
@@ -223,11 +252,25 @@ void Odbieranie_odpowiadanie(){
     }
 
     //czeka na wiadomość od przewodniczącego o ocenie 
+    Wiadomosc_zocena wiadA;
+    if (msgrcv(msgID, &wiadA, sizeof(Wiadomosc_zocena) - sizeof(long), getpid(), 0) == -1) {
+        perror("Blad msgrcv w studencie");
+        exit(EXIT_FAILURE);
+    }
 
-    //tutaj po udzieleniu odpowiedzi wychodzi z pokoju i zwalnia kolejke do komisji
+
+    //tutaj po udzieleniu odpowiedzi i otrzymaniu oceny wychodzi z pokoju i zwalnia kolejke do komisji
     semafor_signal(semID,3);
 
+    //wychodzi z pokoju i zwalnia w nim miejsce
+    semafor_signal(semID,2);
+
     //sprawdza ocene i jak zdał, to idzie dalej, jak nie zdał to exituje
+    if(wiadA.ocena < 2.5){
+        //student nie zdał i wraca do domu
+        exit(EXIT_SUCCESS);
+    }
+    
 
 
 }
@@ -342,6 +385,7 @@ int main()
     int lsKierunek_5 = losuj_ilosc_studentow();
     int liczba_studentow = lsKierunek_1 + lsKierunek_2 + lsKierunek_3 + lsKierunek_4 + lsKierunek_5;
     shm_ptr->ilosc_studentow=liczba_studentow;
+    shm_ptr->ilosc_studentow_na_wybranym_kierunku=lsKierunek_2;
 
     if (liczba_studentow > MAX_STUDENTOW)
     {
@@ -398,7 +442,7 @@ int main()
 
                 if(shm_ptr->students[student_id].powtarza_egzamin == 1){
                     //wyslij komunikat przewodniczacego komisji A, ze ma juz zdaną praktyke
-                    Sendmsg(msgID, 5, getpid(), shm_ptr->students[student_id].ocena_praktyka,shm_ptr->students[student_id].powtarza_egzamin);
+                    Sendmsg(msgID, 5, getpid(), shm_ptr->students[student_id].ocena_praktykasr,shm_ptr->students[student_id].powtarza_egzamin,student_id);
 
                     //czeka na komunikat o tym, że zdał i może  iść do komisji B
                     odbierz_komunikat_przepisanie();
@@ -406,12 +450,15 @@ int main()
 
                 }
                 else{
+                    //wysyla komunikat, że on nie przepisuje oceny, tylko chce zdawać normalnie
+                    Sendmsg(msgID, 5, getpid(), shm_ptr->students[student_id].ocena_praktykasr,shm_ptr->students[student_id].powtarza_egzamin,student_id);
                     // wyślij komunikat do każdego członka komisji, chcesz zdawac egzamin
-                    Sendmsg(msgID, PKA,getpid(),shm_ptr->students[student_id].ocena_praktyka,shm_ptr->students[student_id].powtarza_egzamin);
-                    Sendmsg(msgID, CZ2KA,getpid(),shm_ptr->students[student_id].ocena_praktyka,shm_ptr->students[student_id].powtarza_egzamin);
-                    Sendmsg(msgID, CZ3KA,getpid(),shm_ptr->students[student_id].ocena_praktyka,shm_ptr->students[student_id].powtarza_egzamin);
+                    Sendmsg(msgID, PKA,getpid(),shm_ptr->students[student_id].ocena_praktykasr,shm_ptr->students[student_id].powtarza_egzamin,student_id);
+                    Sendmsg(msgID, CZ2KA,getpid(),shm_ptr->students[student_id].ocena_praktykasr,shm_ptr->students[student_id].powtarza_egzamin,student_id);
+                    Sendmsg(msgID, CZ3KA,getpid(),shm_ptr->students[student_id].ocena_praktykasr,shm_ptr->students[student_id].powtarza_egzamin,student_id);
                     
                     //funkcja która symuluje dostanie pytań, czekanie 10 minut(okreslony czas i wyslanie odpowiedzi)
+                    Egzamin_komisjaA();
 
                 }
 
