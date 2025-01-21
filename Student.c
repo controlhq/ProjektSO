@@ -10,8 +10,10 @@
 #include <sys/msg.h>
 #include <sys/sem.h>
 #include <sys/shm.h>
+#include <sys/ipc.h>
 #include <sys/types.h>
 #include <time.h>
+#include <errno.h>
 
 #define T 600
 #define K 5                 // ilość kierunków na wydziale X
@@ -26,6 +28,8 @@
 #define PKB 452
 #define CZ2KB 453
 #define CZ3KB 454
+
+pid_t mainprogstud; // zmienna do przechowywania pidu glownego programu w celu obsluzenia sygnału
 
 int shmID, semID, msgID;  //ID semafora, kolejki kom. pamieci dzielonej
 
@@ -101,10 +105,16 @@ void semafor_signal(int semid, int sem_num){ // funkcja do semafor V
     }
 }
 
+float losuj_ocene_pozytywna() {
+    int rand_value = rand() % 5;  
+    float oceny[] = {3.0, 3.5, 4.0, 4.5, 5.0};  
+    float ost = oceny[rand_value];
+    return ost; 
+}
 
 void inicjalizacja_studenta(int student_id, int kierunek, int powtarzaEgzamin) {
     //Przygotowuje nowego studenta
-    float ocena_poz = losuj_ocene_pozytywna();;
+    float ocena_poz = losuj_ocene_pozytywna();
     Student student;
     student.id = student_id;
     student.pid_studenta = getpid();
@@ -142,15 +152,9 @@ void inicjalizacja_studenta(int student_id, int kierunek, int powtarzaEgzamin) {
         printf("Przekroczono maksymalna liczbe studentow w pamieci dzielonej\n");
     }
 
-    printf("Student o pid:%d zakonczyl inicjalizaje\n",getpid());
+    printf("Student %d o pid:%d zakonczyl inicjalizaje\n",student_id, getpid());
 }
 
-float losuj_ocene_pozytywna() {
-    int rand_value = rand() % 5;  
-    float oceny[] = {3.0, 3.5, 4.0, 4.5, 5.0};  
-    float ost = oceny[rand_value];
-    return ost; 
-}
 
 int losuj_ilosc_studentow() {
     return (rand() % (160 - 80 + 1)) + 80; // losuje liczbe studentów w zakresie 80<=Ni<=160
@@ -171,6 +175,32 @@ void Sendmsg(int msgid, long mtype, int student_pid, float grade, int zdane, int
         exit(EXIT_FAILURE);
     }
 
+}
+
+void koniec() //Funkcja zwalniająca zasoby
+{
+    // Zwalnianie kolejki komunikatów
+    if (msgctl(msgID, IPC_RMID, NULL) == -1) {
+        perror("Blad przy zwalnianiu kolejki komunikatow");
+    } else {
+        printf("Kolejka komunikatow zostala pomyslnie zwolniona\n");
+    }
+
+    // Zwalnianie pamięci dzielonej
+    if (shmctl(shmID, IPC_RMID, NULL) == -1) {
+        perror("Blad przy zwalnianiu pamieci dzielonej");
+    } else {
+        printf("Pamiec dzielona zostala pomyslnie zwolniona\n");
+    }
+
+    // Zwalnianie semaforów
+    if (semctl(semID, 0, IPC_RMID) == -1) {
+        perror("Blad przy zwalnianiu semaforow");
+    } else {
+        printf("Semafory zostaly pomyslnie zwolnione\n");
+    }
+
+    printf("Zasoby zostaly zwolnione\n");
 }
 
 void odbierz_komunikat_przepisanie(){
@@ -195,8 +225,15 @@ void Egzamin_komisjaA(){
         Pytanie msg;
         // Próba odebrania wiadomości
         if (msgrcv(msgID, &msg, sizeof(Pytanie) - sizeof(long), getpid(), IPC_NOWAIT) == -1) {
-            perror("Blad msgrcv w studencie");
-            exit(EXIT_FAILURE); 
+             if (errno == ENOMSG) {
+                // Brak wiadomości - kontynuuj pętlę
+                usleep(100000); // Opóźnienie dla odciążenia procesora (100ms)
+                continue;
+            } else {
+                // Inny błąd
+                perror("Blad msgrcv w studencie");
+                exit(EXIT_FAILURE);
+            }
         } else {
             // Zidentyfikowanie wiadomości od którego członka pytanie
             if (msg.IDczlonkakomisji == PKA) {
@@ -211,6 +248,7 @@ void Egzamin_komisjaA(){
         
         
     }
+    
 
     //po otrzymaniu pytań, student przygotowuje się przez T = 10 minut do odpowiedzi
     //sleep(T);
@@ -268,44 +306,40 @@ void Egzamin_komisjaA(){
     //sprawdza ocene i jak zdał, to idzie dalej, jak nie zdał to exituje
     if(wiadA.ocena < 2.5){
         //student nie zdał i wraca do domu
+        printf("Student o pid: %d nie zdal praktyki i poszedl do domu\n",getpid());
+        exit(EXIT_SUCCESS);
+    }
+    printf("Student o pid: %d zdal praktyke na ocene %0.2f\n",getpid(), wiadA.ocena);
+
+
+}
+void sigint_handler(int sig){
+    if(mainprogstud == getpid()){
+        while(wait(NULL)>0);
+        koniec();
+        printf("MAIN - funkcja koniec sygnal %d: Koniec.\n",sig);
+        exit(0);
+    }else{
         exit(EXIT_SUCCESS);
     }
     
-
-
 }
 
 
 
-void koniec() //Funkcja zwalniająca zasoby
-{
-    // Zwalnianie kolejki komunikatów
-    if (msgctl(msgID, IPC_RMID, NULL) == -1) {
-        perror("Blad przy zwalnianiu kolejki komunikatow");
-    } else {
-        printf("Kolejka komunikatow zostala pomyslnie zwolniona\n");
-    }
 
-    // Zwalnianie pamięci dzielonej
-    if (shmctl(shmID, IPC_RMID, NULL) == -1) {
-        perror("Blad przy zwalnianiu pamieci dzielonej");
-    } else {
-        printf("Pamiec dzielona zostala pomyslnie zwolniona\n");
-    }
-
-    // Zwalnianie semaforów
-    if (semctl(semID, 0, IPC_RMID) == -1) {
-        perror("Blad przy zwalnianiu semaforow");
-    } else {
-        printf("Semafory zostaly pomyslnie zwolnione\n");
-    }
-
-    printf("Zasoby zostaly zwolnione\n");
-}
 
 int main()
 {
     srand(time(NULL));
+    mainprogstud = getpid();
+
+    //obsluga sygnalu sigint
+    struct sigaction act;
+    act.sa_handler = sigint_handler;
+    sigemptyset(&act.sa_mask);
+    act.sa_flags=0;
+    sigaction(SIGINT,&act,0);
     
 
     key_t kluczm, kluczs, kluczk;
@@ -333,7 +367,7 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    semID=semget(kluczs,4,IPC_CREAT|0666); 
+    semID=semget(kluczs,5,IPC_CREAT|0666); 
     if(semID==-1){
         perror("Blad tworzenia semaforow \n");
         exit(EXIT_FAILURE);
@@ -385,7 +419,7 @@ int main()
     int lsKierunek_5 = losuj_ilosc_studentow();
     int liczba_studentow = lsKierunek_1 + lsKierunek_2 + lsKierunek_3 + lsKierunek_4 + lsKierunek_5;
     shm_ptr->ilosc_studentow=liczba_studentow;
-    shm_ptr->ilosc_studentow_na_wybranym_kierunku=lsKierunek_2;
+    shm_ptr->ilosc_studentow_na_wybranym_kierunku=lsKierunek_2; // bo zakładam sztywno, że kierunek 2 (tak bylo napisane w opisie tematu)
 
     if (liczba_studentow > MAX_STUDENTOW)
     {
@@ -428,7 +462,7 @@ int main()
 
                 //tutaj wysyłanie przez dziekana studentów do domu, którzy nie piszą egzaminu
                 if(kierunek != shm_ptr->wybrany_kierunek){
-                    printf("Student o pid: %d, wrocil do domu, poniewaz egzamin nie dotyczy jego kierunku\n", getpid());
+                    printf("Student %d o pid: %d, wrocil do domu, poniewaz egzamin nie dotyczy jego kierunku\n",student_id ,getpid());
                     exit(EXIT_SUCCESS);
                 }
 
@@ -439,7 +473,7 @@ int main()
 
                 //student ustawia się do kolejki do komisji A
                 semafor_wait(semID, 2);
-
+                semafor_wait(semID,0);
                 if(shm_ptr->students[student_id].powtarza_egzamin == 1){
                     //wyslij komunikat przewodniczacego komisji A, ze ma juz zdaną praktyke
                     Sendmsg(msgID, 5, getpid(), shm_ptr->students[student_id].ocena_praktykasr,shm_ptr->students[student_id].powtarza_egzamin,student_id);
@@ -450,6 +484,7 @@ int main()
 
                 }
                 else{
+                    
                     //wysyla komunikat, że on nie przepisuje oceny, tylko chce zdawać normalnie
                     Sendmsg(msgID, 5, getpid(), shm_ptr->students[student_id].ocena_praktykasr,shm_ptr->students[student_id].powtarza_egzamin,student_id);
                     // wyślij komunikat do każdego członka komisji, chcesz zdawac egzamin
@@ -459,8 +494,9 @@ int main()
                     
                     //funkcja która symuluje dostanie pytań, czekanie 10 minut(okreslony czas i wyslanie odpowiedzi)
                     Egzamin_komisjaA();
-
+                    
                 }
+                semafor_signal(semID,0);
 
 
                 exit(0);

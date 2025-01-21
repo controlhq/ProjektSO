@@ -25,7 +25,7 @@
 #define CZ3KB 454
 #define MAX_STUD 160
 
-
+pthread_t KAczlonek2, KAczlonek3;
 pthread_mutex_t mutexA;
 //pthread_mutex_t mutexB;
 pthread_cond_t cond_komunikatzpA;
@@ -34,22 +34,21 @@ pthread_cond_t cond_komunikat_przejsciaA;
 pthread_cond_t cond_komunikat_przejsciaA2;
 int Liczba_studentow_do_zegzaminowania;
 
+pid_t mainprogKomisja;
+
 int komunikatzpA=0;
 int msgID;
 int shmID;
+int semID;
 int komunikatzwA=0;
 int komunikat_przejsciaA=0;
 int komunikat_przejsciaA2=0;
-SHARED_MEMORY *shm_ptr;
+int terminate_threads = 0;
 
-typedef struct {
-    int students_count;          // to jest licznik który jest inkrementowany
-    int ilosc_studentow;         // a to jest ilość wylosowanych studentów(tak jakby warunek stopu)
-    int wybrany_kierunek;
-    int index;
-    int ilosc_studentow_na_wybranym_kierunku;
-    Student students[MAX_STUD];  // Tablica struktur Student
-} SHARED_MEMORY;
+typedef struct{
+    long mtype;
+    pid_t PIDS;
+}Krotkie_powiadomienie;
 
 typedef struct {            // struktura reprezentująca każdego studenta
     int id;   
@@ -67,6 +66,18 @@ typedef struct {            // struktura reprezentująca każdego studenta
     float ocena_teoriasr;
 }Student;
 
+typedef struct {
+    int students_count;          // to jest licznik który jest inkrementowany
+    int ilosc_studentow;         // a to jest ilość wylosowanych studentów(tak jakby warunek stopu)
+    int wybrany_kierunek;
+    int index;
+    int ilosc_studentow_na_wybranym_kierunku;
+    Student students[MAX_STUD];  // Tablica struktur Student
+} SHARED_MEMORY;
+
+SHARED_MEMORY *shm_ptr;
+
+
 
 typedef struct{ //struktura komunikatu
 	long mtype;
@@ -78,10 +89,12 @@ typedef struct{ //struktura komunikatu
 
 
 Kom_bufor msg;
+Kom_bufor localmsg2;
+Kom_bufor localmsg;
 Kom_bufor Student_przewodniczacyKA;
 Kom_bufor Student_Czlonek2A;
 Kom_bufor Student_Czlonek3A;
-Wiadomosc_zocena wiadKA;
+
 
 
 typedef struct{
@@ -96,6 +109,8 @@ typedef struct{
     long mtype;
     float ocena;
 }Wiadomosc_zocena;
+
+Wiadomosc_zocena wiadKA;
 
 void Sendmsg(int msgid, long mtype, int student_pid, float grade, int zdane) {
     Kom_bufor msg;
@@ -149,67 +164,76 @@ float wylosuj_ocene() {
 
 void* KA_czlonek3(){
     //stworzenie lokalnej wiadomości
-    Kom_bufor localmsg;
-    Pytanie p2;
+    while (!terminate_threads) {
+        Pytanie p2;
 
-    for (int KACZLON3 = 0; KACZLON3 < Liczba_studentow_do_zegzaminowania; KACZLON3++) {
+        for (int KACZLON3 = 0; KACZLON3 < Liczba_studentow_do_zegzaminowania; KACZLON3++) {
 
-        //czeka aż przewodniczący odbierze wiadomość, czy student zdaje czy przepisuje ocene
-        pthread_mutex_lock(&mutexA);
-        while (!komunikatzpA) {
-            pthread_cond_wait(&cond_komunikatzpA, &mutexA);
-        }
-        localmsg = msg;
-        pthread_mutex_unlock(&mutexA);
-
-        
-
-        if(localmsg.czy_zdane != 1){
-            //odbiera wiadomość o long CZK3 kom_bufor
-            if (msgrcv(msgID, &Student_Czlonek3A, sizeof(Kom_bufor) - sizeof(long), CZ3KA, 0) == -1) {
-                    perror("Blad msgrcv w komisji\n");
-                    exit(EXIT_FAILURE);
-            }
-            //przygotowuje pytanie:
-            int PPopoz1 = rand()%6 +5; 
-            //zadaje pytanie studentowi
-            wyslij_pytanie(msgID,Student_Czlonek3A.pidStudenta,PPopoz1,CZ3KA);
-            //czeka na pytanie od studenta, ocenia je 
-            if (msgrcv(msgID, &p2, sizeof(Pytanie) - sizeof(long),CZ3KA , 0) == -1) {
-                perror("Blad msgrcv w KOmisji");
-                exit(EXIT_FAILURE); 
-            }
-            float ocenaCZ3KA = wylosuj_ocene();
-            shm_ptr->students[localmsg.id_studenta].ocena_praktyka3 = ocenaCZ3KA;
-
-            //czeka na wystawienie średniej przez przewodniczącego i przechodzi do nastepnego studenta
+            //czeka aż przewodniczący odbierze wiadomość, czy student zdaje czy przepisuje ocene
             pthread_mutex_lock(&mutexA);
-            while (!komunikat_przejsciaA) {
-            pthread_cond_wait(&cond_komunikat_przejsciaA, &mutexA);
+            while (!komunikatzpA) {
+                pthread_cond_wait(&cond_komunikatzpA, &mutexA);
             }
             pthread_mutex_unlock(&mutexA);
 
+            
+
+            if(localmsg.czy_zdane != 1){
+                //odbiera wiadomość o long CZK3 kom_bufor
+                if (msgrcv(msgID, &Student_Czlonek3A, sizeof(Kom_bufor) - sizeof(long), CZ3KA, 0) == -1) {
+                        perror("Blad msgrcv w komisji\n");
+                        exit(EXIT_FAILURE);
+                }
+                //przygotowuje pytanie:
+                int PPopoz1 = rand()%6 +5; 
+                //zadaje pytanie studentowi
+                wyslij_pytanie(msgID,Student_Czlonek3A.pidStudenta,PPopoz1,CZ3KA);
+                //czeka na pytanie od studenta, ocenia je 
+                if (msgrcv(msgID, &p2, sizeof(Pytanie) - sizeof(long),CZ3KA , 0) == -1) {
+                    perror("Blad msgrcv w Komisji");
+                    exit(EXIT_FAILURE); 
+                }
+                float ocenaCZ3KA = wylosuj_ocene();
+                shm_ptr->students[localmsg.id_studenta].ocena_praktyka3 = ocenaCZ3KA;
+                printf("Ocena od czlonka 3 dla studenta: %d wynosi: %0.1f\n",Student_Czlonek3A.pidStudenta,ocenaCZ3KA);
+                //wysyla komunikat do przewodniczacego, ze ocenil juz studenta
+                Krotkie_powiadomienie c3KA;
+                c3KA.mtype=888;
+                c3KA.PIDS=localmsg.pidStudenta;
+                msgsnd(msgID,&c3KA,sizeof(Krotkie_powiadomienie)-sizeof(long),0);
 
 
 
 
-        }
-        else {
-            //tutaj drugi condition variable, który bedzie czekał,aż przewodniczący wyśle wiadomość
-            //czeka aż przewodniczacy wyśle komunikat o tym że student moze isc do komisji B i zmieni wartość komunikatzwA z powrotem na 0
+                //czeka na wystawienie średniej przez przewodniczącego i przechodzi do nastepnego studenta
+                pthread_mutex_lock(&mutexA);
+                while (!komunikat_przejsciaA) {
+                pthread_cond_wait(&cond_komunikat_przejsciaA, &mutexA);
+                }
+                pthread_mutex_unlock(&mutexA);
+
+
+
+
+
+            }
+            else {
+                //tutaj drugi condition variable, który bedzie czekał,aż przewodniczący wyśle wiadomość
+                //czeka aż przewodniczacy wyśle komunikat o tym że student moze isc do komisji B i zmieni wartość komunikatzwA z powrotem na 0
+                pthread_mutex_lock(&mutexA);
+                while(!komunikatzwA){
+                    pthread_cond_wait(&cond_komunikatzwA, &mutexA);
+                }
+                pthread_mutex_unlock(&mutexA);
+            
+            }
+            //tutaj czekam na reset flag do synchronizacji, który wykonuje przewodniczacy
             pthread_mutex_lock(&mutexA);
-            while(!komunikatzwA){
-                pthread_cond_wait(&cond_komunikatzwA, &mutexA);
+            while (!komunikat_przejsciaA2) {
+                pthread_cond_wait(&cond_komunikat_przejsciaA2, &mutexA);
             }
             pthread_mutex_unlock(&mutexA);
-        
         }
-        //tutaj czekam na reset flag do synchronizacji, który wykonuje przewodniczacy
-        pthread_mutex_lock(&mutexA);
-        while (!komunikat_przejsciaA2) {
-            pthread_cond_wait(&cond_komunikat_przejsciaA2, &mutexA);
-        }
-        pthread_mutex_unlock(&mutexA);
     }
 
 
@@ -217,67 +241,74 @@ void* KA_czlonek3(){
 }
 
 void* KA_czlonek2(){
-    Kom_bufor localmsg2;
-    Pytanie p3;
-
-    for (int KACZLON2 = 0; KACZLON2 < Liczba_studentow_do_zegzaminowania; KACZLON2++) {
-
-        pthread_mutex_lock(&mutexA);
-        while (!komunikatzpA) {
-            pthread_cond_wait(&cond_komunikatzpA, &mutexA);
-        }
-        localmsg2 = msg;
-        pthread_mutex_unlock(&mutexA);
-
-        if(localmsg2.czy_zdane != 1){
-            //zaczyna egzamin
-            if (msgrcv(msgID, &Student_Czlonek2A, sizeof(Kom_bufor) - sizeof(long), CZ2KA, 0) == -1) {
-                    perror("Blad msgrcv w komisji\n");
-                    exit(EXIT_FAILURE);
-            }
-            //przygotowuje pytanie:
-            int PPopoz2 = rand()%6 +5; 
-            //zadaje pytanie studentowi
-            wyslij_pytanie(msgID,Student_Czlonek2A.pidStudenta,PPopoz2,CZ2KA);
-            //czeka na pytanie od studenta, ocenia je 
-            if (msgrcv(msgID, &p3, sizeof(Pytanie) - sizeof(long),CZ2KA , 0) == -1) {
-                perror("Blad msgrcv w KOmisji");
-                exit(EXIT_FAILURE); 
-            }
-            float ocenaCZ2KA = wylosuj_ocene();
-            
-            shm_ptr->students[localmsg2.id_studenta].ocena_praktyka3 = ocenaCZ2KA;
-
-            //czeka na wystawienie średniej przez przewodniczącego i przechodzi do nastepnego studenta
-            pthread_mutex_lock(&mutexA);
-            while (!komunikat_przejsciaA) {
-            pthread_cond_wait(&cond_komunikat_przejsciaA, &mutexA);
-            }
-            pthread_mutex_unlock(&mutexA);
-
-
-
-
-        }
-        else {
-            //tutaj drugi condition variable, który bedzie czekał,aż przewodniczący wyśle wiadomość
-            //czeka aż przewodniczacy wyśle komunikat i zmieni wartość komunikatzwA z powrotem na 0
-            pthread_mutex_lock(&mutexA);
-            while(!komunikatzwA){
-                pthread_cond_wait(&cond_komunikatzwA, &mutexA);
-            }
-            pthread_mutex_unlock(&mutexA);
+    while (!terminate_threads) {
         
+        Pytanie p3;
+
+        for (int KACZLON2 = 0; KACZLON2 < Liczba_studentow_do_zegzaminowania; KACZLON2++) {
+
+            pthread_mutex_lock(&mutexA);
+            while (!komunikatzpA) {
+                pthread_cond_wait(&cond_komunikatzpA, &mutexA);
+            }
+            pthread_mutex_unlock(&mutexA);
+
+            if(localmsg2.czy_zdane != 1){
+                //zaczyna egzamin
+                if (msgrcv(msgID, &Student_Czlonek2A, sizeof(Kom_bufor) - sizeof(long), CZ2KA, 0) == -1) {
+                        perror("Blad msgrcv w komisji\n");
+                        exit(EXIT_FAILURE);
+                }
+                //przygotowuje pytanie:
+                int PPopoz2 = rand()%6 +5; 
+                //zadaje pytanie studentowi
+                wyslij_pytanie(msgID,Student_Czlonek2A.pidStudenta,PPopoz2,CZ2KA);
+                //czeka na pytanie od studenta, ocenia je 
+                if (msgrcv(msgID, &p3, sizeof(Pytanie) - sizeof(long),CZ2KA , 0) == -1) {
+                    perror("Blad msgrcv w Komisji");
+                    exit(EXIT_FAILURE); 
+                }
+                float ocenaCZ2KA = wylosuj_ocene();
+                
+                shm_ptr->students[localmsg2.id_studenta].ocena_praktyka2 = ocenaCZ2KA;
+                printf("Ocena od czlonka 2 dla studenta: %d wynosi: %0.1f\n",Student_Czlonek2A.pidStudenta,ocenaCZ2KA);
+
+                //wysyla prowadzacemu komunikat, ze juz ocenil danego studenta
+                Krotkie_powiadomienie c2KA;
+                c2KA.mtype=889;
+                c2KA.PIDS=localmsg2.pidStudenta;
+                msgsnd(msgID,&c2KA,sizeof(Krotkie_powiadomienie)-sizeof(long),0);
+
+                //czeka na wystawienie średniej przez przewodniczącego i przechodzi do nastepnego studenta
+                pthread_mutex_lock(&mutexA);
+                while (!komunikat_przejsciaA) {
+                pthread_cond_wait(&cond_komunikat_przejsciaA, &mutexA);
+                }
+                pthread_mutex_unlock(&mutexA);
+
+
+
+
+            }
+            else {
+                //tutaj drugi condition variable, który bedzie czekał,aż przewodniczący wyśle wiadomość
+                //czeka aż przewodniczacy wyśle komunikat i zmieni wartość komunikatzwA z powrotem na 0
+                pthread_mutex_lock(&mutexA);
+                while(!komunikatzwA){
+                    pthread_cond_wait(&cond_komunikatzwA, &mutexA);
+                }
+                pthread_mutex_unlock(&mutexA);
+            
+            }
+            //tutaj czekam na reset flag do synchronizacji, który wykonuje przewodniczacy
+            pthread_mutex_lock(&mutexA);
+            while (!komunikat_przejsciaA2) {
+                pthread_cond_wait(&cond_komunikat_przejsciaA2, &mutexA);
+            }
+            pthread_mutex_unlock(&mutexA);
         }
-        //tutaj czekam na reset flag do synchronizacji, który wykonuje przewodniczacy
-        pthread_mutex_lock(&mutexA);
-        while (!komunikat_przejsciaA2) {
-            pthread_cond_wait(&cond_komunikat_przejsciaA2, &mutexA);
-        }
-        pthread_mutex_unlock(&mutexA);
+
     }
-
-
     pthread_exit(NULL);
 }
 
@@ -318,11 +349,56 @@ void* KB_czlonek2(){
     pthread_exit(NULL);
 }
 */
+void sigint_handler(int sig){
+    if(mainprogKomisja == getpid()){
+        wait(NULL);
+        if(pthread_join(KAczlonek2, NULL) != 0){
+            perror("Blad przy joinie czlonka 2 komisji A\n");
+            exit(EXIT_FAILURE);
+        }
+        if(pthread_join(KAczlonek3, NULL) != 0){
+            perror("Blad przy joinie czlonka 3 komisji A\n");
+            exit(EXIT_FAILURE);
+        }
+        pthread_mutex_destroy(&mutexA);
+        pthread_cond_destroy(&cond_komunikatzpA);
+        pthread_cond_destroy(&cond_komunikatzwA);
+        pthread_cond_destroy(&cond_komunikat_przejsciaA);
+        pthread_cond_destroy(&cond_komunikat_przejsciaA2);
+        exit(EXIT_SUCCESS);
+
+    }else{
+        exit(EXIT_SUCCESS);
+    }
+}
 
 int main(){
     srand(time(NULL));
     key_t kluczk;
     key_t kluczm;
+    key_t kluczs;
+    mainprogKomisja= getpid();
+
+    //obsluga sygnalu sigint
+    struct sigaction act;
+    act.sa_handler = sigint_handler;
+    sigemptyset(&act.sa_mask);
+    act.sa_flags=0;
+    sigaction(SIGINT,&act,0);
+
+
+    if((kluczs=ftok(".",'B')) == -1){
+        perror("Blad przy tworzeniu klucza do semaforów\n");
+        exit(EXIT_FAILURE);
+    }
+
+    semID=semget(kluczs,5,IPC_CREAT|0666); 
+    if(semID==-1){
+        perror("Blad tworzenia semaforow \n");
+        exit(EXIT_FAILURE);
+    }
+
+    
 
     if((kluczm=ftok(".",'A')) == -1){
       perror("Blad przy tworzeniu klucza do pamieci dzielonej w Studencie\n");
@@ -410,7 +486,16 @@ int main(){
         default: // komisja A jako rodzic bo zaczyna caly proces
 
         //tworze czlonkow komisji -> przewodniczacy to wątek główny
-        pthread_t KAczlonek2, KAczlonek3;
+
+
+
+
+
+         // [[[[[[[[[[[tutaj byly zdefiniowane]]]]]]]]]]]
+
+
+
+
         pthread_mutex_init(&mutexA,NULL);
         pthread_cond_init(&cond_komunikatzpA,NULL);
         pthread_cond_init(&cond_komunikatzwA,NULL);
@@ -444,9 +529,13 @@ int main(){
                 perror("Blad msgrcv w komisji\n");
                 exit(EXIT_FAILURE);
             }
+            localmsg2=msg;
+            localmsg=msg;
+            printf("Odebralem wiadomosc od studenta\n");
             // flaga do synchronizacji watkow
             komunikat_przejsciaA2=0;
             int student_pid = msg.pidStudenta;
+            printf("Wiadomosc ta byla od studenta z pid: %d\n",student_pid);
             komunikatzpA =1;
             pthread_mutex_unlock(&mutexA);
             pthread_cond_broadcast(&cond_komunikatzpA); // sygnalizuje wszystkim wątkom żeby sprawdzić warunek
@@ -463,7 +552,7 @@ int main(){
             }else{
                 //rozpoczynam egzamin
                 //odbierz wiadomość od studenta o gotowości przystapienia do egzaminu
-                if (msgrcv(msgID, &Student_przewodniczacyKA, sizeof(Kom_bufor) - sizeof(long), PKA, 0) == -1) {
+                if (msgrcv(msgID, &msg, sizeof(Kom_bufor) - sizeof(long), PKA, 0) == -1) {
                     perror("Blad msgrcv w komisji\n");
                     exit(EXIT_FAILURE);
                 }
@@ -474,26 +563,36 @@ int main(){
 
 
                 //wysyla pytanie do studenta
-                wyslij_pytanie(msgID,Student_przewodniczacyKA.pidStudenta,PPopoz, PKA);
+                wyslij_pytanie(msgID,msg.pidStudenta,PPopoz, PKA);
 
                 //czyta odpowiedź, ocenia ją i czeka, aż inni członkowie ocenią, potem sprawdza, czy nie ma
                 //oceny 2 i liczy średnią a nastepnie wysyla wiadomosc z oceną do studenta
                 if (msgrcv(msgID, &pKA, sizeof(Pytanie) - sizeof(long),CZ2KA , 0) == -1) {
-                    perror("Blad msgrcv w KOmisji");
+                    perror("Blad msgrcv w Komisji");
                     exit(EXIT_FAILURE); 
                 }
                 float ocenaPKA = wylosuj_ocene();
                 shm_ptr->students[msg.id_studenta].ocena_praktykaP = ocenaPKA;
 
+                printf("Ocena od Przewodniczacego dla studenta: %d wynosi: %0.1f\n",msg.pidStudenta,ocenaPKA);
 
+
+                
                 //czekam dopóki czlonkowie komisji ocenią studenta (defaultowo oceny sa zainicjowane na 0.0 stad taki warunek)
-                while(shm_ptr->students[msg.id_studenta].ocena_praktyka2 < 1.0 && shm_ptr->students[msg.id_studenta].ocena_praktyka3 < 1.0){
-                    usleep(100000); 
-                }
+
+                
+                //while(shm_ptr->students[msg.id_studenta].ocena_praktyka2 < 1.0 && shm_ptr->students[msg.id_studenta].ocena_praktyka3 < 1.0){
+                 //   usleep(100000); 
+                //}
+                
+                Krotkie_powiadomienie Pkomisa;
+
+                msgrcv(msgID,&Pkomisa,sizeof(Krotkie_powiadomienie)-sizeof(long),889,0);
+                msgrcv(msgID,&Pkomisa,sizeof(Krotkie_powiadomienie)-sizeof(long),888,0);
 
                 //obliczam ocene koncowa dla studenta
                 float ocena_koncowaKA = oblicz_srednia_i_zaokragl(shm_ptr->students[msg.id_studenta].ocena_praktykaP,shm_ptr->students[msg.id_studenta].ocena_praktyka2,shm_ptr->students[msg.id_studenta].ocena_praktyka3);
-                
+                printf("Student z pid: %d dostal ocene %0.2f\n",student_pid,ocena_koncowaKA);
                 //zapisuje studentowi tą ocene
                 shm_ptr->students[msg.id_studenta].ocena_praktykasr = ocena_koncowaKA;
 

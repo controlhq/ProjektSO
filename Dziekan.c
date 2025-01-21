@@ -121,7 +121,7 @@ int main(){
     exit(EXIT_FAILURE);
   }
 
-  semID=semget(kluczs,4,IPC_CREAT|0666); 
+  semID=semget(kluczs,5,IPC_CREAT|0666); 
   if(semID==-1){
     perror("Blad tworzenia semaforow w Dziekanie\n");
     exit(EXIT_FAILURE);
