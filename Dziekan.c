@@ -5,7 +5,6 @@
 #include <stdlib.h>                         
 #include <stdio.h>
 #include <sys/wait.h>
-#include <semaphore.h>
 #include <signal.h>
 #include <fcntl.h>
 #include <sys/msg.h>
@@ -22,7 +21,6 @@ typedef struct {            // struktura reprezentująca każdego studenta
     pid_t pid_studenta;     // identyfikator kazdego studenta
     int Kierunek;
     int powtarza_egzamin;   // flaga, jeśli student powtarza egzamin (1 - tak,0 - nie)
-    int zaliczona_praktyka; // flaga, czy czesc praktyczna zostala zaliczona
     float ocena_praktykaP;
     float ocena_praktyka2;
     float ocena_praktyka3;
@@ -37,6 +35,7 @@ typedef struct {
     int students_count;          // to jest licznik który jest inkrementowany
     int ilosc_studentow;         // a to jest ilość wylosowanych studentów(tak jakby warunek stopu)
     int wybrany_kierunek;
+    int ilosc_osob_przepisujacych; // ile osob przepisuje ocene(ma zdany egz. prakt)
     int index;
     int ilosc_studentow_na_wybranym_kierunku;
     Student students[MAX_STUD];  // Tablica struktur Student
@@ -80,24 +79,36 @@ void koniec() //Funkcja zwalniająca zasoby
 
     // Zwalnianie pamięci dzielonej
     if (shmctl(shmID, IPC_RMID, NULL) == -1) {
-        perror("Blad przy zwalnianiu pamieci dzielonej");
+      perror("Blad przy zwalnianiu pamieci dzielonej");
     } else {
-        printf("Pamiec dzielona zostala pomyslnie zwolniona\n");
+      printf("Pamiec dzielona zostala pomyslnie zwolniona\n");
     }
 
     // Zwalnianie semaforów
     if (semctl(semID, 0, IPC_RMID) == -1) {
-        perror("Blad przy zwalnianiu semaforow");
+      perror("Blad przy zwalnianiu semaforow");
     } else {
-        printf("Semafory zostaly pomyslnie zwolnione\n");
+      printf("Semafory zostaly pomyslnie zwolnione\n");
     }
 
     printf("Zasoby zostaly zwolnione\n");
 }
 
+void sigint_handler(int sig){
+  printf("[DZIEKAN] Program Dziekan otrzymal sygnal SIGINT i zakonczyl dzialanie\n");
+  exit(0);
+}
+
 int main(){
   srand(time(NULL));
   key_t kluczm, kluczs, kluczk;
+
+    //obsluga sygnalu sigint
+    struct sigaction act;
+    act.sa_handler = sigint_handler;
+    sigemptyset(&act.sa_mask);
+    act.sa_flags=0;
+    sigaction(SIGINT,&act,0);
 
   if((kluczm=ftok(".",'A')) == -1){
     perror("Blad przy tworzeniu klucza do pamieci dzielonej w Dziekanie\n");
@@ -137,7 +148,8 @@ int main(){
   //jak wszyscy studenci się zebrali, to dziekan ogłasza który kierunek ma egzamin
   int w_kierunek = 2;
   shm_ptr->wybrany_kierunek = w_kierunek;
-  
+  printf("[DZIEKAN] Liczba studentow do egzaminowania: %d,",shm_ptr->ilosc_studentow_na_wybranym_kierunku);
+  semafor_signal(semID,4);
 
   //dziekan wpuszcza tych, którzy mają egzamin, a innych wysyła do domu
   printf("Dziekan wysyła sygnał do studentów.\n");
@@ -145,8 +157,11 @@ int main(){
     semafor_signal(semID,1);
   }
 
+  printf("Dziekan wyslal sygnal wszystkim studentom\n");
+
   //dziekan czeka na komunikat z ocenami 
   
+  printf("[DZIEKAN] Program Dziekan zakonczyl dzialanie\n");
   
 
   return 0;

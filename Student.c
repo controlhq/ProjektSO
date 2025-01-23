@@ -4,7 +4,6 @@
 #include <stdlib.h>                         
 #include <stdio.h>
 #include <sys/wait.h>
-#include <semaphore.h>
 #include <signal.h>
 #include <fcntl.h>
 #include <sys/msg.h>
@@ -41,7 +40,6 @@ typedef struct {            // struktura reprezentująca każdego studenta
     pid_t pid_studenta;     // identyfikator kazdego studenta
     int Kierunek;
     int powtarza_egzamin;   // flaga, jeśli student powtarza egzamin (1 - tak,0 - nie)
-    int zaliczona_praktyka; // flaga, czy czesc praktyczna zostala zaliczona
     float ocena_praktykaP;
     float ocena_praktyka2;
     float ocena_praktyka3;
@@ -56,6 +54,7 @@ typedef struct {
     int students_count;          // to jest licznik który jest inkrementowany
     int ilosc_studentow;         // a to jest ilość wylosowanych studentów(tak jakby warunek stopu)
     int wybrany_kierunek;
+    int ilosc_osob_przepisujacych; // ile osob przepisuje ocene(ma zdany egz. prakt)
     int index;
     int ilosc_studentow_na_wybranym_kierunku;
     Student students[MAX_STUD];  // Tablica struktur Student
@@ -125,7 +124,6 @@ void inicjalizacja_studenta(int student_id, int kierunek, int powtarzaEgzamin) {
     student.Kierunek = kierunek;
     student.powtarza_egzamin = powtarzaEgzamin;
     if(powtarzaEgzamin == 1){
-        student.zaliczona_praktyka = 1;
         student.ocena_praktykasr = ocena_poz;
         student.ocena_praktyka2 = ocena_poz;
         student.ocena_praktyka3 = ocena_poz;
@@ -135,18 +133,15 @@ void inicjalizacja_studenta(int student_id, int kierunek, int powtarzaEgzamin) {
         student.ocena_teoriaP=0.0;
         student.ocena_teoriasr=0.0;
     }else{
-        student.zaliczona_praktyka = 0;
-        student.ocena_praktykasr= 0.0;
-        student.ocena_praktyka2 =0.0;
+        student.ocena_praktykasr=0.0;
+        student.ocena_praktyka2=0.0;
         student.ocena_praktyka3=0.0;
         student.ocena_praktykaP=0.0;
-        student.ocena_teoria2 =0.0;
+        student.ocena_teoria2=0.0;
         student.ocena_teoria3=0.0;
         student.ocena_teoriaP=0.0;
         student.ocena_teoriasr=0.0;
     }
-    
-    
     
     int index1 = shm_ptr->index;
     if(index1 < MAX_STUD){
@@ -156,7 +151,7 @@ void inicjalizacja_studenta(int student_id, int kierunek, int powtarzaEgzamin) {
         printf("Przekroczono maksymalna liczbe studentow w pamieci dzielonej\n");
     }
 
-    printf("Student %d o pid:%d zakonczyl inicjalizaje\n",student_id, getpid());
+    //printf("Student %d o pid:%d zakonczyl inicjalizaje\n",student_id, getpid());
 }
 
 
@@ -191,121 +186,11 @@ void koniec() //Funkcja zwalniająca zasoby
     printf("Zasoby zostaly zwolnione\n");
 }
 
-void odbierz_komunikat_przepisanie(){
-    Kom_bufor msgKA;
 
-    // Odbieranie komunikatu z kolejki o mtype = getpid()
-    if (msgrcv(msgID, &msgKA, sizeof(Kom_bufor) - sizeof(long), getpid(), 0) == -1) {
-        perror("Blad msgrcv w komisji\n");
-        exit(EXIT_FAILURE);
-    }
-    
-}
-
-void Egzamin_komisjaA(){
-    int pytaniaodebrane=0;
-    Pytanie pyt1;
-    Pytanie pyt2;
-    Pytanie pyt3;
-
-    //czeka na odbiór wszystkich 3 wiadomości
-    while (pytaniaodebrane < 3) {
-        Pytanie msg;
-        // Próba odebrania wiadomości
-        if (msgrcv(msgID, &msg, sizeof(Pytanie) - sizeof(long), getpid(), IPC_NOWAIT) == -1) {
-             if (errno == ENOMSG) {
-                // Brak wiadomości - kontynuuj pętlę
-                usleep(100000); // Opóźnienie dla odciążenia procesora (100ms)
-                continue;
-            } else {
-                // Inny błąd
-                perror("Blad msgrcv w studencie");
-                exit(EXIT_FAILURE);
-            }
-        } else {
-            // Zidentyfikowanie wiadomości od którego członka pytanie
-            if (msg.IDczlonkakomisji == PKA) {
-                pyt1 = msg;
-            } else if (msg.IDczlonkakomisji == CZ2KA) {
-                pyt2 = msg;
-            } else  {
-                pyt3 = msg;
-            } 
-            pytaniaodebrane++;
-        }
-        
-        
-    }
-    
-
-    //po otrzymaniu pytań, student przygotowuje się przez T = 10 minut do odpowiedzi
-    //sleep(T);
-
-    //Sprawdza, czy jest wolne miejsce (czy nikt nie siedzi) przed komisja
-    semafor_wait(semID, 3);
-
-    //najpierw odpowiada przewodniczacemu
-    int odp_przewodniczacy = rand()%6+5;
-    pyt1.odpowiedz=odp_przewodniczacy;
-    pyt1.mtype = PKA;
-    pyt1.pid_studenta=getpid();
-    if (msgsnd(msgID, &pyt1, sizeof(Pytanie) - sizeof(long), IPC_NOWAIT) == -1) {
-        //tutaj jak kolejka będzie przepelniona to errno zwróci EAGAIN -> zrobić do tego obsluge potem
-        perror("Blad msgsnd w studencie");
-        exit(EXIT_FAILURE);
-    }
-
-    //teraz odpowiadam czlonkowi 2
-    int odp_czl2 = rand()%6+5;
-    pyt2.odpowiedz=odp_czl2;
-    pyt2.mtype = CZ2KA;
-    pyt2.pid_studenta=getpid();
-    if (msgsnd(msgID, &pyt2, sizeof(Pytanie) - sizeof(long), IPC_NOWAIT) == -1) {
-        //tutaj jak kolejka będzie przepelniona to errno zwróci EAGAIN -> zrobić do tego obsluge potem
-        perror("Blad msgsnd w studencie");
-        exit(EXIT_FAILURE);
-    }
-
-    //teraz odpowiadam czlonkowi 3
-    int odp_czl3 = rand()%6+5;
-    pyt3.odpowiedz=odp_czl3;
-    pyt3.mtype = CZ3KA;
-    pyt3.pid_studenta=getpid();
-    if (msgsnd(msgID, &pyt3, sizeof(Pytanie) - sizeof(long), IPC_NOWAIT) == -1) {
-        //tutaj jak kolejka będzie przepelniona to errno zwróci EAGAIN -> zrobić do tego obsluge potem
-        perror("Blad msgsnd w studencie");
-        exit(EXIT_FAILURE);
-    }
-
-    //czeka na wiadomość od przewodniczącego o ocenie 
-    Wiadomosc_zocena wiadA;
-    if (msgrcv(msgID, &wiadA, sizeof(Wiadomosc_zocena) - sizeof(long), getpid(), 0) == -1) {
-        perror("Blad msgrcv w studencie");
-        exit(EXIT_FAILURE);
-    }
-
-
-    //tutaj po udzieleniu odpowiedzi i otrzymaniu oceny wychodzi z pokoju i zwalnia kolejke do komisji
-    semafor_signal(semID,3);
-
-
-
-    //sprawdza ocene i jak zdał, to idzie dalej, jak nie zdał to exituje
-    if(wiadA.ocena < 2.5){
-        //student nie zdał i wraca do domu
-        printf("Student o pid: %d nie zdal praktyki i poszedl do domu\n",getpid());
-        exit(EXIT_SUCCESS);
-    }
-    printf("Student o pid: %d zdal praktyke na ocene %0.2f\n",getpid(), wiadA.ocena);
-
-
-}
 void sigint_handler(int sig){
     if(mainprogstud == getpid()){
         while(wait(NULL)>0);
-        koniec();
-        printf("MAIN - funkcja koniec sygnal %d: Koniec.\n",sig);
-        exit(0);
+        exit(EXIT_SUCCESS);
     }else{
         exit(EXIT_SUCCESS);
     }
@@ -313,13 +198,11 @@ void sigint_handler(int sig){
 }
 
 
-
-
-
 int main()
 {
     srand(time(NULL));
     mainprogstud = getpid();
+    
 
     //obsluga sygnalu sigint
     struct sigaction act;
@@ -346,8 +229,12 @@ int main()
         perror("Blad przy dolaczaniu pamieci dzielonej w Studencie\n");
         exit(EXIT_FAILURE);
     }
-    shm_ptr->students_count=0; //inicjalizacja counta na 0
-    shm_ptr->index =0;
+    
+    if(mainprogstud==getpid()){
+        shm_ptr->students_count=0; //inicjalizacja counta na 0
+        shm_ptr->index =0;
+        shm_ptr->ilosc_osob_przepisujacych=0;
+    }
 
     if((kluczs=ftok(".",'B')) == -1){
         perror("Blad przy tworzeniu klucza do semaforów\n");
@@ -384,6 +271,11 @@ int main()
         perror("Blad przy inicjalizacji semafora 3\n");
         exit(EXIT_FAILURE);
     }
+    if((semctl(semID,4,SETVAL,0))== -1)
+    {
+        perror("Blad przy inicjalizacji semafora 4\n");
+        exit(EXIT_FAILURE);
+    }
 
     if((kluczk = ftok(".", 'C')) == -1)
     {
@@ -405,8 +297,13 @@ int main()
     int lsKierunek_4 = losuj_ilosc_studentow();
     int lsKierunek_5 = losuj_ilosc_studentow();
     int liczba_studentow = lsKierunek_1 + lsKierunek_2 + lsKierunek_3 + lsKierunek_4 + lsKierunek_5;
+
+    semafor_wait(semID,0);
     shm_ptr->ilosc_studentow=liczba_studentow;
     shm_ptr->ilosc_studentow_na_wybranym_kierunku=lsKierunek_2; // bo zakładam sztywno, że kierunek 2 (tak bylo napisane w opisie tematu)
+    semafor_signal(semID,0);
+
+
 
     if (liczba_studentow > MAX_STUDENTOW)
     {
@@ -429,14 +326,22 @@ int main()
 
 
             int powtarzaEgzamin = rand() % 100 < 5 ? 1 : 0; // 5% studentów powtarza egzamin z zaliczoną praktyką
-
+            
+            
+            //tutaj zapisuje ilosc osob, które przepisuje ocene (zalożenie ze kierunek==2)
+            if(mainprogstud==getpid() && kierunek == 2 && powtarzaEgzamin ==1){
+                semafor_wait(semID,0);
+                shm_ptr->ilosc_osob_przepisujacych++;
+                semafor_signal(semID,0);
+            }
+            
             pid_t pid = fork();
             if (pid < 0) {
                 perror("Blad forka\n");
                 exit(EXIT_FAILURE);
             } else if (pid == 0) {
                 // Proces potomny (student)
-                printf("Student %d o pid: %d pojawił się przed budynkiem i czeka w kolejce na wejscie\n", student_id, getpid());
+                //printf("Student %d o pid: %d pojawił się przed budynkiem i czeka w kolejce na wejscie\n", student_id, getpid());
                 
                 semafor_wait(semID,0);
                 shm_ptr->students_count++;
@@ -446,21 +351,23 @@ int main()
                 //tutaj semafor, który czeka na sygnał od dziekana
                 semafor_wait(semID,1);
                 
-
+                
                 //tutaj wysyłanie przez dziekana studentów do domu, którzy nie piszą egzaminu
+                semafor_wait(semID,0);
                 if(kierunek != shm_ptr->wybrany_kierunek){
-                    printf("Student %d o pid: %d, wrocil do domu, poniewaz egzamin nie dotyczy jego kierunku\n",student_id ,getpid());
+                    semafor_signal(semID,0);
+                    //printf("Student %d o pid: %d, wrocil do domu, poniewaz egzamin nie dotyczy jego kierunku\n",student_id ,getpid());
                     exit(EXIT_SUCCESS);
                 }
+                printf("Student o pid %d\n",getpid());
+                semafor_signal(semID,0);
 
                 semafor_wait(semID,0);
                 //tutaj inicjalizacja we wspolnej pamieci danych studentów którzy zdają egzamin 
                 inicjalizacja_studenta(student_id, kierunek, powtarzaEgzamin);
+                //printf("Student o pid: %d zainicijalizowal sie\n",getpid());
                 semafor_signal(semID,0);
                 
-
-
-
 
 
 
@@ -516,6 +423,7 @@ int main()
 
                     //czekam na wiadomosc z potwierdzeniem
                     msgrcv(msgID, &potwierdz, sizeof(Kom_bufor) - sizeof(long), getpid(), 0);
+                    
 
 
                     //czekam na wszystkie pytania od komisji
@@ -597,14 +505,14 @@ int main()
 
                     //wychodzi z pokoju komisji A
                     semafor_signal(semID,2);
-                    printf("Ja, student o pid: %d otrzymalem ocene: %0.1f\n",getpid(),Zwrotna.ocena);
+                    //printf("Ja, student o pid: %d otrzymalem ocene: %0.1f\n",getpid(),Zwrotna.ocena);
 
                     if(Zwrotna.ocena < 2.5){
-                        printf("Student o pid: %d, wrocil do domu, bo otrzymal ocene %0.1f z praktyki\n",getpid(),Zwrotna.ocena);
+                        //printf("Student o pid: %d, wrocil do domu, bo otrzymal ocene %0.1f z praktyki\n",getpid(),Zwrotna.ocena);
                         exit(EXIT_SUCCESS);
                     }
                     else{
-                        printf("Student o pid %d zdal praktyke na ocene %0.1f\n",getpid(),Zwrotna.ocena);
+                        //printf("Student o pid %d zdal praktyke na ocene %0.1f\n",getpid(),Zwrotna.ocena);
                     }
 
 
