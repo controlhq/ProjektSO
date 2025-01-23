@@ -447,7 +447,7 @@ int main()
                                 continue;
                             } else {
                                 // Inny błąd
-                                perror("Blad msgrcv w studencie");
+                                perror("Blad msgrcv w studencie przy czekaniu na wszystkie pytania");
                                 exit(EXIT_FAILURE);
                             }
                         } else {
@@ -540,6 +540,5 @@ int main()
     
     while (wait(NULL) > 0); // czekam na zakończenie wszystkich procesów potomnych
     
-    koniec();
     return 0;
 }

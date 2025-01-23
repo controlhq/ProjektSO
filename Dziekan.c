@@ -79,14 +79,14 @@ void koniec() //Funkcja zwalniająca zasoby
 
     // Zwalnianie pamięci dzielonej
     if (shmctl(shmID, IPC_RMID, NULL) == -1) {
-      perror("Blad przy zwalnianiu pamieci dzielonej");
+      perror("Blad przy zwalnianiu pamieci dzielonej\n");
     } else {
       printf("Pamiec dzielona zostala pomyslnie zwolniona\n");
     }
 
     // Zwalnianie semaforów
     if (semctl(semID, 0, IPC_RMID) == -1) {
-      perror("Blad przy zwalnianiu semaforow");
+      perror("Blad przy zwalnianiu semaforow\n");
     } else {
       printf("Semafory zostaly pomyslnie zwolnione\n");
     }
@@ -148,7 +148,7 @@ int main(){
   //jak wszyscy studenci się zebrali, to dziekan ogłasza który kierunek ma egzamin
   int w_kierunek = 2;
   shm_ptr->wybrany_kierunek = w_kierunek;
-  printf("[DZIEKAN] Liczba studentow do egzaminowania: %d,",shm_ptr->ilosc_studentow_na_wybranym_kierunku);
+  printf("[DZIEKAN] Liczba studentow do egzaminowania: %d\n",shm_ptr->ilosc_studentow_na_wybranym_kierunku);
   semafor_signal(semID,4);
 
   //dziekan wpuszcza tych, którzy mają egzamin, a innych wysyła do domu

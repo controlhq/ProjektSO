@@ -52,21 +52,21 @@ void koniec() //Funkcja zwalniająca zasoby
 {
     // Zwalnianie kolejki komunikatów
     if (msgctl(msgID, IPC_RMID, NULL) == -1) {
-        perror("Blad przy zwalnianiu kolejki komunikatow");
+        perror("Blad przy zwalnianiu kolejki komunikatow\n");
     } else {
         printf("Kolejka komunikatow zostala pomyslnie zwolniona\n");
     }
 
     // Zwalnianie pamięci dzielonej
     if (shmctl(shmID, IPC_RMID, NULL) == -1) {
-        perror("Blad przy zwalnianiu pamieci dzielonej");
+        perror("Blad przy zwalnianiu pamieci dzielonej\n");
     } else {
         printf("Pamiec dzielona zostala pomyslnie zwolniona\n");
     }
 
     // Zwalnianie semaforów
     if (semctl(semID, 0, IPC_RMID) == -1) {
-        perror("Blad przy zwalnianiu semaforow");
+        perror("Blad przy zwalnianiu semaforow\n");
     } else {
         printf("Semafory zostaly pomyslnie zwolnione\n");
     }
@@ -201,6 +201,7 @@ int main(){
     waitpid(pid1, NULL, 0);
     waitpid(pid2, NULL, 0);
     waitpid(pid3, NULL, 0);
+    koniec();
 
     return 0;
 }
