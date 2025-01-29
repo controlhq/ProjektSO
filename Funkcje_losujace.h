@@ -5,5 +5,6 @@ float losuj_ocene_pozytywna();
 int losuj_ilosc_studentow();
 float wylosuj_ocene();
 float oblicz_srednia_i_zaokragl(float a, float b, float c);
+float oblicz_srednia_i_zaokragl_DZIEKAN(float a, float b);
 
 #endif 

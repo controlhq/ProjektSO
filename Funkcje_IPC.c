@@ -5,9 +5,11 @@
 #include <sys/sem.h>
 #include <sys/msg.h>
 #include <unistd.h>
+#include <stdarg.h>
+#include <errno.h>
 
 #define SHM_SIZE sizeof(SHARED_MEMORY)
-#define SEM_COUNT 5
+#define SEM_COUNT 9
 #define MAX_STUD 160
 
 typedef struct {            // struktura reprezentująca każdego studenta
@@ -26,15 +28,30 @@ typedef struct {            // struktura reprezentująca każdego studenta
 }Student;
 
 typedef struct {
+    int flagakomA;
+    int Liczba_studentow_dokomB;
     int Komisjazakonczenie;
     int students_count;          // to jest licznik który jest inkrementowany
     int ilosc_studentow;         // a to jest ilość wylosowanych studentów(tak jakby warunek stopu)
     int wybrany_kierunek;
     int ilosc_osob_przepisujacych; // ile osob przepisuje ocene(ma zdany egz. prakt)
-    int index;
+    int index_stud;
     int ilosc_studentow_na_wybranym_kierunku;
     Student students[MAX_STUD];  // Tablica struktur Student
 } SHARED_MEMORY;
+
+typedef struct {
+    int index;
+    int pid;           
+    float ocenaPrzewA;   
+    float ocenaCzA2;     
+    float ocenaCzA3;     
+    float sredniaA;   
+    float ocenaPrzewB;  
+    float ocenaCzB2;     
+    float ocenaCzB3;     
+    float sredniaB;
+} WynikEgzaminu;
 
 
 key_t kluczm, kluczs, kluczk;
@@ -95,4 +112,99 @@ void koniec() {
     } else {
         printf("Semafory zostaly pomyslnie zwolnione\n");
     }
+}
+
+void Zapiszlog(const char* format, ...) {
+    FILE *log_file = fopen("procesy.log", "a");
+    if (log_file != NULL) {
+        // Wypisz PID procesu na początku
+        fprintf(log_file, "PID:%d ", getpid());
+
+        // Obsługa zmiennej liczby argumentów
+        va_list args;
+        va_start(args, format);
+        vfprintf(log_file, format, args);
+        va_end(args);
+
+        fprintf(log_file, "\n"); // Nowa linia na końcu
+        fclose(log_file);
+    } else {
+        perror("Failed to open log file");
+    }
+}
+
+void handle_msgrcv_error_with_logging(void (*log_function)(const char*, ...)) {
+    const char* error_message;
+
+    switch (errno) {
+        case E2BIG:
+            error_message = "Komunikat jest za duzy, aby zmiescil się w buforze (E2BIG)";
+            break;
+        case EACCES:
+            error_message = "Brak dostepu do kolejki komunikatow (EACCES)";
+            break;
+        case EFAULT:
+            error_message = "Nieprawidlowy wskaznik na bufor wiadomosci (EFAULT)";
+            break;
+        case EIDRM:
+            error_message = "Kolejka komunikatow zostala usunieta (EIDRM)";
+            break;
+        case EINTR:
+            error_message = "Operacja przerwana przez sygnal (EINTR)";
+            break;
+        case EINVAL:
+            error_message = "Nieprawidlowe parametry (EINVAL)";
+            break;
+        case ENOMSG:
+            error_message = "Brak komunikatow pasujacych do kryteriow wyszukiwania (ENOMSG)";
+            break;
+        default:
+            error_message = "Nieznany blad podczas odbierania wiadomosci (msgrcv)";
+            break;
+    }
+
+    perror(error_message);
+
+    if (log_function) {
+        log_function("Blad w msgrcv: %s (errno: %d)", error_message, errno);
+    }
+
+}
+
+void handle_msgsnd_error_with_logging(void (*log_function)(const char*, ...)) {
+    const char* error_message;
+
+    switch (errno) {
+        case EACCES:
+            error_message = "Brak dostepu do kolejki komunikatow (EACCES)";
+            break;
+        case EAGAIN:
+            error_message = "Brak miejsca w kolejce komunikatow (EAGAIN)";
+            break;
+        case EFAULT:
+            error_message = "Nieprawidlowy wskaznik na komunikat (EFAULT)";
+            break;
+        case EIDRM:
+            error_message = "Kolejka komunikatow zostala usunieta (EIDRM)";
+            break;
+        case EINTR:
+            error_message = "Operacja przerwana przez sygnal (EINTR)";
+            break;
+        case EINVAL:
+            error_message = "Nieprawidlowe parametry (EINVAL)";
+            break;
+        case ENOMEM:
+            error_message = "Brak pamieci dla wysylania wiadomosci (ENOMEM)";
+            break;
+        default:
+            error_message = "Nieznany blad podczas wysylania wiadomosci (msgsnd)";
+            break;
+    }
+
+    perror(error_message);
+
+    if (log_function) {
+        log_function("Blad w msgrcv: %s (errno: %d)", error_message, errno);
+    }
+
 }

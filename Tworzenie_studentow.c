@@ -1,6 +1,5 @@
 #define _GNU_SOURCE
 #include <stdio.h>
-#include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
 #include <signal.h>
@@ -28,6 +27,7 @@ typedef struct{ //struktura komunikatu
     float ocena_koncowa;
     int pidStudenta;
     int czy_zdane;
+    int index_studenta;
     int id_studenta;
     int zdaje_czy_pytania; // jak zdaje to 1, jak pytania to 0
 }Kom_bufor;
@@ -40,61 +40,20 @@ typedef struct{
     int odpowiedz;  
 }Pytanie;
 
-void inicjalizacja_studenta(int student_id, int kierunek, int powtarzaEgzamin) {
-    //Przygotowuje nowego studenta
-    float ocena_poz = losuj_ocene_pozytywna();
-    Student student;
-    student.id = student_id;
-    student.pid_studenta = getpid();
-    student.Kierunek = kierunek;
-    student.powtarza_egzamin = powtarzaEgzamin;
-    if(powtarzaEgzamin == 1){
-        student.ocena_praktykasr = ocena_poz;
-        student.ocena_praktyka2 = ocena_poz;
-        student.ocena_praktyka3 = ocena_poz;
-        student.ocena_praktykaP = ocena_poz;
-        student.ocena_teoria2 =0.0;
-        student.ocena_teoria3=0.0;
-        student.ocena_teoriaP=0.0;
-        student.ocena_teoriasr=0.0;
-    }else{
-        student.ocena_praktykasr=0.0;
-        student.ocena_praktyka2=0.0;
-        student.ocena_praktyka3=0.0;
-        student.ocena_praktykaP=0.0;
-        student.ocena_teoria2=0.0;
-        student.ocena_teoria3=0.0;
-        student.ocena_teoriaP=0.0;
-        student.ocena_teoriasr=0.0;
-    }
-    
-    int index1 = shm_ptr->index;
-    if(index1 < MAX_STUD){
-        shm_ptr->students[index1] = student;
-        shm_ptr->index++;
-    }else{
-        printf("Przekroczono maksymalna liczbe studentow w pamieci dzielonej\n");
-    }
-
-    //printf("Student %d o pid:%d zakonczyl inicjalizaje\n",student_id, getpid());
-}
-
 void sigint_handler(int sig){
-
     if(mainprogstud == getpid()){
         printf("Odebrano sygnal intsig w tworzenie studentow: %d\n",sig);
         while(wait(NULL)>0);
-        exit(EXIT_SUCCESS);
-    }else{
-        exit(EXIT_SUCCESS);
+        return;
     }
 }
 
 
 int main()
 {
-    srand(time(NULL));
+    
     mainprogstud = getpid();
+    unsigned int seedT = time(NULL) ^ mainprogstud;
 
     //obsluga sygnalu sigint
     struct sigaction act;
@@ -126,7 +85,7 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    semID=semget(kluczs, 5, IPC_CREAT| IPC_EXCL | 0666); 
+    semID=semget(kluczs, 9, IPC_CREAT| IPC_EXCL | 0666); 
     if(semID==-1){
         perror("Blad tworzenia semaforow w Tworzenie_studentow\n");
         exit(EXIT_FAILURE);
@@ -141,17 +100,26 @@ int main()
     //to jest kolejka do odpowiedzi w pokoju komisji A
     init_semaphore(3,1);
     init_semaphore(4,0);
+    //kolejka do komisji B (3os)
+    init_semaphore(5,3);
+    //kolejka do odpowiedzi lub pytan w komisji B
+    init_semaphore(6,1);
+    //SEMAFOR DO ZAPISU LOGÓW
+    init_semaphore(7,1);
+    init_semaphore(8,1);
 
-    int lsKierunek_1 = losuj_ilosc_studentow(); //losuje ilości studentów na poszczególnych kierunkach
-    int lsKierunek_2 = losuj_ilosc_studentow();
-    int lsKierunek_3 = losuj_ilosc_studentow();
-    int lsKierunek_4 = losuj_ilosc_studentow();
-    int lsKierunek_5 = losuj_ilosc_studentow();
+    int lsKierunek_1 = losuj_ilosc_studentow(&seedT); //losuje ilości studentów na poszczególnych kierunkach
+    int lsKierunek_2 = losuj_ilosc_studentow(&seedT);
+    int lsKierunek_3 = losuj_ilosc_studentow(&seedT);
+    int lsKierunek_4 = losuj_ilosc_studentow(&seedT);
+    int lsKierunek_5 = losuj_ilosc_studentow(&seedT);
     int liczba_studentow = lsKierunek_1 + lsKierunek_2 + lsKierunek_3 + lsKierunek_4 + lsKierunek_5;
 
     semafor_wait(semID,0);
+    shm_ptr->flagakomA=0;
+    shm_ptr->Liczba_studentow_dokomB=0;
     shm_ptr->students_count=0; //inicjalizacja counta na 0
-    shm_ptr->index =0;
+    shm_ptr->index_stud =0;
     shm_ptr->ilosc_osob_przepisujacych=0;
     shm_ptr->ilosc_studentow=liczba_studentow;
     shm_ptr->ilosc_studentow_na_wybranym_kierunku=lsKierunek_2; // bo zakładam sztywno, że kierunek 2 (tak bylo napisane w opisie tematu)
@@ -160,7 +128,12 @@ int main()
     //wyslij wiadomosc dziekanowi, ze moze startować
     Krotkie_powiadomienie LS;
     LS.mtype=40;
-    msgsnd(msgID,&LS,sizeof(Krotkie_powiadomienie)-sizeof(long),0);
+    if((msgsnd(msgID,&LS,sizeof(Krotkie_powiadomienie)-sizeof(long),0)) == -1){
+        semafor_wait(semID,7);
+        handle_msgsnd_error_with_logging(Zapiszlog);
+        semafor_signal(semID,7);
+        exit(EXIT_FAILURE);
+    }
 
     if (liczba_studentow > MAX_STUDENTOW)
     {

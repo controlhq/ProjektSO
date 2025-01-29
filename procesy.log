@@ -1,0 +1,1327 @@
+PID:20274 Dziekan czeka na otworzenie fifo przez Komisje A
+PID:19751 Student o pid: 19751, dostal wszystkie pytania od komisji A
+PID:19752 Student o pid: 19752, dostal wszystkie pytania od komisji A
+PID:19753 Student o pid: 19753, dostal wszystkie pytania od komisji A
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19751
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19751
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19751
+PID:19751 Student o pid: 19751, otrzymał ocene: 4.0
+PID:19751 Student o pid: 19751 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19752
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19752
+PID:19751 Student o pid: 19751 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19752
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19751
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19751
+PID:19752 Student o pid: 19752, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19753
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19753
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19751
+PID:19752 Student o pid: 19752 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19753
+PID:19751 Student o pid: 19751 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19753 Student o pid: 19753, otrzymał ocene: 4.0
+PID:19752 Student o pid: 19752 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19753 Student o pid: 19753 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19754 Student o pid: 19754, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19752
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19752
+PID:19756 Student o pid: 19756, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19752
+PID:19752 Student o pid: 19752 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19755 Student o pid: 19755, dostal wszystkie pytania od komisji A
+PID:19753 Student o pid: 19753 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19754
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19754
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19753
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19753
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19754
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 2.0 studentowi o pid: 19753
+PID:19754 Student o pid: 19754, otrzymał ocene: 4.5
+PID:19753 Student o pid: 19753 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19756
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19756
+PID:19754 Student o pid: 19754 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19756
+PID:19754 Student o pid: 19754 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19756 Student o pid: 19756, otrzymał ocene: 4.0
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19754
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19754
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19755
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19755
+PID:19756 Student o pid: 19756 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19754
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19755
+PID:19754 Student o pid: 19754 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19755 Student o pid: 19755, otrzymał ocene: 4.5
+PID:19757 Student o pid: 19757, dostal wszystkie pytania od komisji A
+PID:19755 Student o pid: 19755 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19756 Student o pid: 19756 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19759 Student o pid: 19759, dostal wszystkie pytania od komisji A
+PID:19755 Student o pid: 19755 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19760 Student o pid: 19760, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 2.0 studentowi o pid: 19756
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19756
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19757
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19757
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19756
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19757
+PID:19756 Student o pid: 19756 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:19757 Student o pid: 19757, otrzymał ocene: 4.0
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19755
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19755
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19759
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19759
+PID:19757 Student o pid: 19757 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19755
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19759
+PID:19755 Student o pid: 19755 skonczyl egzamin komisji B i otrzymal ocene 5.0
+PID:19759 Student o pid: 19759, otrzymał ocene: 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19760
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19760
+PID:19759 Student o pid: 19759 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19757 Student o pid: 19757 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19760
+PID:19759 Student o pid: 19759 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19760 Student o pid: 19760, otrzymał ocene: 4.5
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19757
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19757
+PID:19763 Student o pid: 19763, dostal wszystkie pytania od komisji A
+PID:19760 Student o pid: 19760 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19757
+PID:19762 Student o pid: 19762, dostal wszystkie pytania od komisji A
+PID:19757 Student o pid: 19757 skonczyl egzamin komisji B i otrzymal ocene 5.0
+PID:19758 Student o pid: 19758, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19759
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19759
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19763
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19763
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19759
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19763
+PID:19759 Student o pid: 19759 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19763 Student o pid: 19763, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19762
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 2.0 studentowi o pid: 19762
+PID:19763 Student o pid: 19763 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19760 Student o pid: 19760 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19762
+PID:19763 Student o pid: 19763 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19762 Student o pid: 19762, otrzymał ocene: 2.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19758
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19758
+PID:19762 Student o pid: 19762 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 2.0 studentowi o pid: 19760
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19760
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19758
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19760
+PID:19758 Student o pid: 19758, otrzymał ocene: 4.5
+PID:19760 Student o pid: 19760 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:19766 Student o pid: 19766, dostal wszystkie pytania od komisji A
+PID:19758 Student o pid: 19758 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19763
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19763
+PID:19765 Student o pid: 19765, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19763
+PID:19763 Student o pid: 19763 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:19770 Student o pid: 19770, dostal wszystkie pytania od komisji A
+PID:19758 Student o pid: 19758 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19766
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19766
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19758
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19758
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19766
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19758
+PID:19766 Student o pid: 19766, otrzymał ocene: 4.5
+PID:19758 Student o pid: 19758 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19765
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 2.0 studentowi o pid: 19765
+PID:19766 Student o pid: 19766 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19765
+PID:19765 Student o pid: 19765, otrzymał ocene: 2.0
+PID:19766 Student o pid: 19766 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19765 Student o pid: 19765 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19770
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 2.0 studentowi o pid: 19770
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19766
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19766
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19770
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19766
+PID:19770 Student o pid: 19770, otrzymał ocene: 2.0
+PID:19766 Student o pid: 19766 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19770 Student o pid: 19770 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:19761 Student o pid: 19761, dostal wszystkie pytania od komisji A
+PID:19768 Student o pid: 19768, dostal wszystkie pytania od komisji A
+PID:19767 Student o pid: 19767, dostal wszystkie pytania od komisji A
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19761
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19761
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19761
+PID:19761 Student o pid: 19761, otrzymał ocene: 3.5
+PID:19761 Student o pid: 19761 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19768
+PID:19761 Student o pid: 19761 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19768
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19761
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19761
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19768
+PID:19768 Student o pid: 19768, otrzymał ocene: 4.0
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19761
+PID:19768 Student o pid: 19768 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19767
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19767
+PID:19761 Student o pid: 19761 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19767
+PID:19767 Student o pid: 19767, otrzymał ocene: 4.0
+PID:19768 Student o pid: 19768 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19767 Student o pid: 19767 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19771 Student o pid: 19771, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19768
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19768
+PID:19772 Student o pid: 19772, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19768
+PID:19773 Student o pid: 19773, dostal wszystkie pytania od komisji A
+PID:19768 Student o pid: 19768 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19771
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19771
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19771
+PID:19767 Student o pid: 19767 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19771 Student o pid: 19771, otrzymał ocene: 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19772
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19772
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19767
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19767
+PID:19771 Student o pid: 19771 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19772
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19767
+PID:19772 Student o pid: 19772, otrzymał ocene: 3.5
+PID:19767 Student o pid: 19767 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19773
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19773
+PID:19772 Student o pid: 19772 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 2.0 studentowi o pid: 19773
+PID:19773 Student o pid: 19773, otrzymał ocene: 2.0
+PID:19771 Student o pid: 19771 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19773 Student o pid: 19773 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:19776 Student o pid: 19776, dostal wszystkie pytania od komisji A
+PID:19772 Student o pid: 19772 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19775 Student o pid: 19775, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19771
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19771
+PID:19777 Student o pid: 19777, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19771
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19776
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19776
+PID:19771 Student o pid: 19771 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19776
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19772
+PID:19776 Student o pid: 19776, otrzymał ocene: 4.5
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19772
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19775
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19775
+PID:19776 Student o pid: 19776 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19772
+PID:19772 Student o pid: 19772 skonczyl egzamin komisji B i otrzymal ocene 5.0
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19775
+PID:19776 Student o pid: 19776 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19775 Student o pid: 19775, otrzymał ocene: 4.0
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19776
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19776
+PID:19775 Student o pid: 19775 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19777
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19777
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19776
+PID:19776 Student o pid: 19776 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19777
+PID:19775 Student o pid: 19775 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19777 Student o pid: 19777, otrzymał ocene: 4.5
+PID:19777 Student o pid: 19777 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19775
+PID:19779 Student o pid: 19779, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19775
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19775
+PID:19778 Student o pid: 19778, dostal wszystkie pytania od komisji A
+PID:19775 Student o pid: 19775 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19777 Student o pid: 19777 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19780 Student o pid: 19780, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19777
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19777
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19779
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19779
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19777
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19779
+PID:19777 Student o pid: 19777 skonczyl egzamin komisji B i otrzymal ocene 3.0
+PID:19779 Student o pid: 19779, otrzymał ocene: 5.0
+PID:19779 Student o pid: 19779 zdal egzamin praktyczny na ocene: 5.0 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19778
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19778
+PID:19779 Student o pid: 19779 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19778
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19779
+PID:19778 Student o pid: 19778, otrzymał ocene: 4.0
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19779
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19780
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19780
+PID:19778 Student o pid: 19778 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19779
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19780
+PID:19779 Student o pid: 19779 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19780 Student o pid: 19780, otrzymał ocene: 4.0
+PID:19780 Student o pid: 19780 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19764 Student o pid: 19764, dostal wszystkie pytania od komisji A
+PID:19778 Student o pid: 19778 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19774 Student o pid: 19774, dostal wszystkie pytania od komisji A
+PID:19780 Student o pid: 19780 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19778
+PID:19781 Student o pid: 19781, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19778
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19764
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19764
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19778
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19764
+PID:19778 Student o pid: 19778 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19764 Student o pid: 19764, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19774
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19774
+PID:19764 Student o pid: 19764 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19780
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19780
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19774
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19780
+PID:19780 Student o pid: 19780 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19774 Student o pid: 19774, otrzymał ocene: 5.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19781
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19781
+PID:19764 Student o pid: 19764 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19774 Student o pid: 19774 zdal egzamin praktyczny na ocene: 5.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19781
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19764
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19764
+PID:19781 Student o pid: 19781, otrzymał ocene: 5.0
+PID:19769 Student o pid: 19769, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19764
+PID:19781 Student o pid: 19781 zdal egzamin praktyczny na ocene: 5.0 i ustawia się do komisji B
+PID:19764 Student o pid: 19764 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19782 Student o pid: 19782, dostal wszystkie pytania od komisji A
+PID:19783 Student o pid: 19783, dostal wszystkie pytania od komisji A
+PID:19774 Student o pid: 19774 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19769
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19769
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19769
+PID:19781 Student o pid: 19781 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19769 Student o pid: 19769, otrzymał ocene: 4.0
+PID:19769 Student o pid: 19769 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19782
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19782
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19774
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19774
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19782
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19774
+PID:19782 Student o pid: 19782, otrzymał ocene: 5.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19783
+PID:19774 Student o pid: 19774 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19783
+PID:19782 Student o pid: 19782 zdal egzamin praktyczny na ocene: 5.0 i ustawia się do komisji B
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19781
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19781
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19783
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19781
+PID:19783 Student o pid: 19783, otrzymał ocene: 4.0
+PID:19781 Student o pid: 19781 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:19784 Student o pid: 19784, dostal wszystkie pytania od komisji A
+PID:19783 Student o pid: 19783 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19769 Student o pid: 19769 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19790 Student o pid: 19790, dostal wszystkie pytania od komisji A
+PID:19782 Student o pid: 19782 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19787 Student o pid: 19787, dostal wszystkie pytania od komisji A
+PID:19783 Student o pid: 19783 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19784
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19784
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19769
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19769
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19784
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19769
+PID:19769 Student o pid: 19769 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19784 Student o pid: 19784, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19790
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19790
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19782
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19782
+PID:19784 Student o pid: 19784 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19790
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19782
+PID:19790 Student o pid: 19790, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19787
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19787
+PID:19790 Student o pid: 19790 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19782 Student o pid: 19782 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19787
+PID:19787 Student o pid: 19787, otrzymał ocene: 3.5
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19783
+PID:19787 Student o pid: 19787 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19783
+PID:19792 Student o pid: 19792, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 2.0 studentowi o pid: 19783
+PID:19795 Student o pid: 19795, dostal wszystkie pytania od komisji A
+PID:19783 Student o pid: 19783 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:19791 Student o pid: 19791, dostal wszystkie pytania od komisji A
+PID:19784 Student o pid: 19784 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19792
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19792
+PID:19790 Student o pid: 19790 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19792
+PID:19787 Student o pid: 19787 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19792 Student o pid: 19792, otrzymał ocene: 4.5
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19795
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19795
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19784
+PID:19792 Student o pid: 19792 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19784
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19795
+PID:19795 Student o pid: 19795, otrzymał ocene: 4.5
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19784
+PID:19795 Student o pid: 19795 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19791
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19791
+PID:19784 Student o pid: 19784 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19791
+PID:19791 Student o pid: 19791, otrzymał ocene: 3.5
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19790
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19790
+PID:19791 Student o pid: 19791 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:19788 Student o pid: 19788, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19790
+PID:19789 Student o pid: 19789, dostal wszystkie pytania od komisji A
+PID:19790 Student o pid: 19790 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19801 Student o pid: 19801, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19787
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19787
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19788
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19788
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19787
+PID:19787 Student o pid: 19787 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19788
+PID:19788 Student o pid: 19788, otrzymał ocene: 4.0
+PID:19792 Student o pid: 19792 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19789
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19789
+PID:19788 Student o pid: 19788 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19795 Student o pid: 19795 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19789
+PID:19789 Student o pid: 19789, otrzymał ocene: 4.0
+PID:19789 Student o pid: 19789 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19801
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19801
+PID:19791 Student o pid: 19791 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19801
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19792
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19792
+PID:19801 Student o pid: 19801, otrzymał ocene: 4.5
+PID:19799 Student o pid: 19799, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19792
+PID:19801 Student o pid: 19801 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19792 Student o pid: 19792 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19798 Student o pid: 19798, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19795
+PID:19805 Student o pid: 19805, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19795
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19799
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19799
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19795
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19799
+PID:19795 Student o pid: 19795 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:19799 Student o pid: 19799, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19798
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19798
+PID:19799 Student o pid: 19799 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19791
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19791
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19798
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19791
+PID:19798 Student o pid: 19798, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19805
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19805
+PID:19791 Student o pid: 19791 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19798 Student o pid: 19798 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19805
+PID:19788 Student o pid: 19788 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19805 Student o pid: 19805, otrzymał ocene: 4.0
+PID:19805 Student o pid: 19805 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19800 Student o pid: 19800, dostal wszystkie pytania od komisji A
+PID:19789 Student o pid: 19789 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19804 Student o pid: 19804, dostal wszystkie pytania od komisji A
+PID:19801 Student o pid: 19801 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19808 Student o pid: 19808, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19788
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19788
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19800
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 2.0 studentowi o pid: 19800
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19788
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19800
+PID:19788 Student o pid: 19788 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19800 Student o pid: 19800, otrzymał ocene: 2.0
+PID:19800 Student o pid: 19800 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19804
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19804
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19789
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19789
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19804
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19789
+PID:19804 Student o pid: 19804, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19808
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19808
+PID:19789 Student o pid: 19789 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19804 Student o pid: 19804 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19808
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19801
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19801
+PID:19808 Student o pid: 19808, otrzymał ocene: 4.0
+PID:19807 Student o pid: 19807, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19801
+PID:19808 Student o pid: 19808 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19785 Student o pid: 19785, dostal wszystkie pytania od komisji A
+PID:19801 Student o pid: 19801 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19810 Student o pid: 19810, dostal wszystkie pytania od komisji A
+PID:19799 Student o pid: 19799 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19807
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19807
+PID:19798 Student o pid: 19798 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19807
+PID:19805 Student o pid: 19805 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19807 Student o pid: 19807, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19785
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19785
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19799
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19799
+PID:19807 Student o pid: 19807 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19785
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19799
+PID:19785 Student o pid: 19785, otrzymał ocene: 5.0
+PID:19799 Student o pid: 19799 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19810
+PID:19785 Student o pid: 19785 zdal egzamin praktyczny na ocene: 5.0 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19810
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19798
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19798
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19810
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19798
+PID:19810 Student o pid: 19810, otrzymał ocene: 4.5
+PID:19798 Student o pid: 19798 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:19810 Student o pid: 19810 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19796 Student o pid: 19796, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19805
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19805
+PID:19797 Student o pid: 19797, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19805
+PID:19805 Student o pid: 19805 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19793 Student o pid: 19793, dostal wszystkie pytania od komisji A
+PID:19804 Student o pid: 19804 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19796
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19796
+PID:19808 Student o pid: 19808 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19796
+PID:19807 Student o pid: 19807 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19796 Student o pid: 19796, otrzymał ocene: 5.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19797
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19797
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19804
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19804
+PID:19796 Student o pid: 19796 zdal egzamin praktyczny na ocene: 5.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19797
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19804
+PID:19797 Student o pid: 19797, otrzymał ocene: 4.5
+PID:19804 Student o pid: 19804 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19793
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19793
+PID:19797 Student o pid: 19797 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19808
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 2.0 studentowi o pid: 19808
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19793
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19808
+PID:19793 Student o pid: 19793, otrzymał ocene: 4.0
+PID:19808 Student o pid: 19808 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:19793 Student o pid: 19793 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19812 Student o pid: 19812, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19807
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19807
+PID:19806 Student o pid: 19806, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19807
+PID:19802 Student o pid: 19802, dostal wszystkie pytania od komisji A
+PID:19807 Student o pid: 19807 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19812
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19812
+PID:19785 Student o pid: 19785 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19812
+PID:19810 Student o pid: 19810 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19812 Student o pid: 19812, otrzymał ocene: 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19806
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19806
+PID:19812 Student o pid: 19812 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19796 Student o pid: 19796 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19806
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19785
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19785
+PID:19806 Student o pid: 19806, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19802
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19802
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19785
+PID:19806 Student o pid: 19806 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19802
+PID:19785 Student o pid: 19785 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19802 Student o pid: 19802, otrzymał ocene: 4.5
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19810
+PID:19803 Student o pid: 19803, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19810
+PID:19802 Student o pid: 19802 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19813 Student o pid: 19813, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19810
+PID:19810 Student o pid: 19810 skonczyl egzamin komisji B i otrzymal ocene 5.0
+PID:19814 Student o pid: 19814, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19796
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19796
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19803
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19803
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 2.0 studentowi o pid: 19796
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19803
+PID:19796 Student o pid: 19796 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:19803 Student o pid: 19803, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19813
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19813
+PID:19797 Student o pid: 19797 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19803 Student o pid: 19803 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19813
+PID:19793 Student o pid: 19793 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19813 Student o pid: 19813, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19814
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19814
+PID:19813 Student o pid: 19813 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19812 Student o pid: 19812 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19814
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19797
+PID:19814 Student o pid: 19814, otrzymał ocene: 4.0
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19797
+PID:19815 Student o pid: 19815, dostal wszystkie pytania od komisji A
+PID:19814 Student o pid: 19814 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19797
+PID:19786 Student o pid: 19786, dostal wszystkie pytania od komisji A
+PID:19797 Student o pid: 19797 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19818 Student o pid: 19818, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19793
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19793
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19815
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19815
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19793
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19815
+PID:19793 Student o pid: 19793 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19815 Student o pid: 19815, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19786
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19786
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19812
+PID:19815 Student o pid: 19815 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19812
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19786
+PID:19786 Student o pid: 19786, otrzymał ocene: 4.5
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19812
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19818
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19818
+PID:19786 Student o pid: 19786 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19812 Student o pid: 19812 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19818
+PID:19818 Student o pid: 19818, otrzymał ocene: 4.5
+PID:19818 Student o pid: 19818 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19806 Student o pid: 19806 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19816 Student o pid: 19816, dostal wszystkie pytania od komisji A
+PID:19802 Student o pid: 19802 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19821 Student o pid: 19821, dostal wszystkie pytania od komisji A
+PID:19794 Student o pid: 19794, dostal wszystkie pytania od komisji A
+PID:19803 Student o pid: 19803 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19816
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19816
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19806
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19806
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19816
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19806
+PID:19816 Student o pid: 19816, otrzymał ocene: 5.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19821
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19821
+PID:19806 Student o pid: 19806 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19816 Student o pid: 19816 zdal egzamin praktyczny na ocene: 5.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19821
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19802
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19802
+PID:19821 Student o pid: 19821, otrzymał ocene: 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19794
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19794
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19802
+PID:19821 Student o pid: 19821 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19794
+PID:19802 Student o pid: 19802 skonczyl egzamin komisji B i otrzymal ocene 5.0
+PID:19794 Student o pid: 19794, otrzymał ocene: 4.0
+PID:19794 Student o pid: 19794 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19817 Student o pid: 19817, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19803
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19803
+PID:19819 Student o pid: 19819, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19803
+PID:19803 Student o pid: 19803 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19822 Student o pid: 19822, dostal wszystkie pytania od komisji A
+PID:19813 Student o pid: 19813 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19817
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19817
+PID:19814 Student o pid: 19814 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19817
+PID:19815 Student o pid: 19815 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19817 Student o pid: 19817, otrzymał ocene: 3.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19819
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 2.0 studentowi o pid: 19819
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19813
+PID:19817 Student o pid: 19817 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19813
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19819
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19813
+PID:19819 Student o pid: 19819, otrzymał ocene: 2.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19822
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19822
+PID:19813 Student o pid: 19813 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19819 Student o pid: 19819 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19822
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19814
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19814
+PID:19822 Student o pid: 19822, otrzymał ocene: 4.5
+PID:19809 Student o pid: 19809, dostal wszystkie pytania od komisji A
+PID:19822 Student o pid: 19822 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19814
+PID:19820 Student o pid: 19820, dostal wszystkie pytania od komisji A
+PID:19814 Student o pid: 19814 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:19823 Student o pid: 19823, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19815
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19815
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19809
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19809
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19815
+PID:19815 Student o pid: 19815 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 2.0 studentowi o pid: 19809
+PID:19809 Student o pid: 19809, otrzymał ocene: 2.0
+PID:19786 Student o pid: 19786 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19820
+PID:19809 Student o pid: 19809 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19820
+PID:19818 Student o pid: 19818 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19820
+PID:19820 Student o pid: 19820, otrzymał ocene: 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19823
+PID:19820 Student o pid: 19820 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19823
+PID:19816 Student o pid: 19816 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19823
+PID:19823 Student o pid: 19823, otrzymał ocene: 3.5
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19786
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19786
+PID:19823 Student o pid: 19823 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:19826 Student o pid: 19826, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19786
+PID:19824 Student o pid: 19824, dostal wszystkie pytania od komisji A
+PID:19786 Student o pid: 19786 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19825 Student o pid: 19825, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19818
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19818
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19826
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19826
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19818
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19826
+PID:19818 Student o pid: 19818 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19826 Student o pid: 19826, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19824
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19824
+PID:19826 Student o pid: 19826 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19816
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19816
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19824
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19816
+PID:19824 Student o pid: 19824, otrzymał ocene: 4.0
+PID:19816 Student o pid: 19816 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19825
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19825
+PID:19824 Student o pid: 19824 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19821 Student o pid: 19821 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19825
+PID:19794 Student o pid: 19794 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19825 Student o pid: 19825, otrzymał ocene: 3.5
+PID:19827 Student o pid: 19827, dostal wszystkie pytania od komisji A
+PID:19817 Student o pid: 19817 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19825 Student o pid: 19825 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:19811 Student o pid: 19811, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19821
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19821
+PID:19829 Student o pid: 19829, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19821
+PID:19821 Student o pid: 19821 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19827
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19827
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19794
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19794
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19827
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19794
+PID:19827 Student o pid: 19827, otrzymał ocene: 4.0
+PID:19794 Student o pid: 19794 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19811
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19811
+PID:19827 Student o pid: 19827 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19817
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19817
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19811
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19817
+PID:19811 Student o pid: 19811, otrzymał ocene: 4.5
+PID:19817 Student o pid: 19817 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19829
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19829
+PID:19811 Student o pid: 19811 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19822 Student o pid: 19822 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19829
+PID:19820 Student o pid: 19820 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19829 Student o pid: 19829, otrzymał ocene: 4.5
+PID:19829 Student o pid: 19829 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19823 Student o pid: 19823 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19830 Student o pid: 19830, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19822
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19822
+PID:19831 Student o pid: 19831, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19822
+PID:19822 Student o pid: 19822 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19834 Student o pid: 19834, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19820
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19830
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 2.0 studentowi o pid: 19820
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19830
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19820
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19830
+PID:19820 Student o pid: 19820 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:19830 Student o pid: 19830, otrzymał ocene: 4.0
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19831
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19831
+PID:19830 Student o pid: 19830 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19823
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19823
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19831
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19823
+PID:19831 Student o pid: 19831, otrzymał ocene: 4.0
+PID:19823 Student o pid: 19823 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 2.0 studentowi o pid: 19834
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 2.0 studentowi o pid: 19834
+PID:19831 Student o pid: 19831 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19826 Student o pid: 19826 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19834
+PID:19834 Student o pid: 19834, otrzymał ocene: 2.0
+PID:19824 Student o pid: 19824 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19834 Student o pid: 19834 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:19836 Student o pid: 19836, dostal wszystkie pytania od komisji A
+PID:19825 Student o pid: 19825 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19837 Student o pid: 19837, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19826
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19826
+PID:19832 Student o pid: 19832, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 2.0 studentowi o pid: 19826
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19836
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19836
+PID:19826 Student o pid: 19826 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19836
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19824
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19824
+PID:19836 Student o pid: 19836, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19837
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19837
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19824
+PID:19836 Student o pid: 19836 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19837
+PID:19824 Student o pid: 19824 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19837 Student o pid: 19837, otrzymał ocene: 4.5
+PID:19837 Student o pid: 19837 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19832
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19832
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19825
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 2.0 studentowi o pid: 19825
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19832
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19825
+PID:19832 Student o pid: 19832, otrzymał ocene: 4.0
+PID:19825 Student o pid: 19825 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:19832 Student o pid: 19832 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19840 Student o pid: 19840, dostal wszystkie pytania od komisji A
+PID:19827 Student o pid: 19827 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19841 Student o pid: 19841, dostal wszystkie pytania od komisji A
+PID:19811 Student o pid: 19811 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19848 Student o pid: 19848, dostal wszystkie pytania od komisji A
+PID:19829 Student o pid: 19829 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19840
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19840
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19827
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19827
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19840
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19827
+PID:19840 Student o pid: 19840, otrzymał ocene: 4.0
+PID:19827 Student o pid: 19827 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19841
+PID:19840 Student o pid: 19840 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19841
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19811
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19811
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19841
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19811
+PID:19841 Student o pid: 19841, otrzymał ocene: 4.0
+PID:19811 Student o pid: 19811 skonczyl egzamin komisji B i otrzymal ocene 5.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19848
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19848
+PID:19841 Student o pid: 19841 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19829
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19829
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19848
+PID:19848 Student o pid: 19848, otrzymał ocene: 4.5
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19829
+PID:19848 Student o pid: 19848 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19847 Student o pid: 19847, dostal wszystkie pytania od komisji A
+PID:19829 Student o pid: 19829 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:19833 Student o pid: 19833, dostal wszystkie pytania od komisji A
+PID:19830 Student o pid: 19830 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19851 Student o pid: 19851, dostal wszystkie pytania od komisji A
+PID:19831 Student o pid: 19831 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19847
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19847
+PID:19836 Student o pid: 19836 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19847
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19830
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19830
+PID:19847 Student o pid: 19847, otrzymał ocene: 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19833
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19833
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19830
+PID:19847 Student o pid: 19847 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19833
+PID:19830 Student o pid: 19830 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19833 Student o pid: 19833, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19851
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19851
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19831
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19831
+PID:19833 Student o pid: 19833 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19851
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19831
+PID:19831 Student o pid: 19831 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19851 Student o pid: 19851, otrzymał ocene: 4.0
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19836
+PID:19853 Student o pid: 19853, dostal wszystkie pytania od komisji A
+PID:19851 Student o pid: 19851 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19836
+PID:19854 Student o pid: 19854, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19836
+PID:19836 Student o pid: 19836 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19837 Student o pid: 19837 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19855 Student o pid: 19855, dostal wszystkie pytania od komisji A
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19853
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 2.0 studentowi o pid: 19853
+PID:19832 Student o pid: 19832 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19853
+PID:19853 Student o pid: 19853, otrzymał ocene: 2.0
+PID:19853 Student o pid: 19853 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19854
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19854
+PID:19840 Student o pid: 19840 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19854
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19837
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19837
+PID:19854 Student o pid: 19854, otrzymał ocene: 3.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19855
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19855
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19837
+PID:19854 Student o pid: 19854 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19855
+PID:19837 Student o pid: 19837 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:19855 Student o pid: 19855, otrzymał ocene: 4.5
+PID:19844 Student o pid: 19844, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19832
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19832
+PID:19855 Student o pid: 19855 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19858 Student o pid: 19858, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19832
+PID:19832 Student o pid: 19832 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19862 Student o pid: 19862, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19840
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19840
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19844
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19844
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19840
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19844
+PID:19840 Student o pid: 19840 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19844 Student o pid: 19844, otrzymał ocene: 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19858
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19858
+PID:19844 Student o pid: 19844 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19841 Student o pid: 19841 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19858
+PID:19858 Student o pid: 19858, otrzymał ocene: 4.0
+PID:19848 Student o pid: 19848 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19862
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19862
+PID:19858 Student o pid: 19858 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19847 Student o pid: 19847 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19862
+PID:19862 Student o pid: 19862, otrzymał ocene: 4.0
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19841
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19841
+PID:19856 Student o pid: 19856, dostal wszystkie pytania od komisji A
+PID:19862 Student o pid: 19862 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19841
+PID:19842 Student o pid: 19842, dostal wszystkie pytania od komisji A
+PID:19841 Student o pid: 19841 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19861 Student o pid: 19861, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19848
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19848
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19856
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19856
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19848
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 2.0 studentowi o pid: 19856
+PID:19848 Student o pid: 19848 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19856 Student o pid: 19856, otrzymał ocene: 2.0
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19842
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19842
+PID:19856 Student o pid: 19856 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19847
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19847
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19842
+PID:19842 Student o pid: 19842, otrzymał ocene: 4.5
+PID:19842 Student o pid: 19842 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19847
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19861
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 2.0 studentowi o pid: 19861
+PID:19847 Student o pid: 19847 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19861
+PID:19861 Student o pid: 19861, otrzymał ocene: 2.0
+PID:19833 Student o pid: 19833 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19861 Student o pid: 19861 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:19863 Student o pid: 19863, dostal wszystkie pytania od komisji A
+PID:19851 Student o pid: 19851 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19870 Student o pid: 19870, dostal wszystkie pytania od komisji A
+PID:19854 Student o pid: 19854 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19866 Student o pid: 19866, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19833
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19833
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19863
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19863
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 2.0 studentowi o pid: 19833
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19863
+PID:19833 Student o pid: 19833 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:19863 Student o pid: 19863, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19870
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19870
+PID:19863 Student o pid: 19863 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19851
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19851
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19870
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19851
+PID:19870 Student o pid: 19870, otrzymał ocene: 4.0
+PID:19851 Student o pid: 19851 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19866
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19866
+PID:19870 Student o pid: 19870 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19854
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19854
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19866
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19854
+PID:19866 Student o pid: 19866, otrzymał ocene: 4.0
+PID:19854 Student o pid: 19854 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:19828 Student o pid: 19828, dostal wszystkie pytania od komisji A
+PID:19866 Student o pid: 19866 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19855 Student o pid: 19855 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19871 Student o pid: 19871, dostal wszystkie pytania od komisji A
+PID:19844 Student o pid: 19844 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19868 Student o pid: 19868, dostal wszystkie pytania od komisji A
+PID:19858 Student o pid: 19858 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19828
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19828
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19855
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19855
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19828
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19855
+PID:19828 Student o pid: 19828, otrzymał ocene: 4.0
+PID:19855 Student o pid: 19855 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19828 Student o pid: 19828 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19871
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19871
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19844
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19844
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19871
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19844
+PID:19871 Student o pid: 19871, otrzymał ocene: 4.5
+PID:19844 Student o pid: 19844 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:19871 Student o pid: 19871 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19868
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19868
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19858
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19858
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19868
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19858
+PID:19868 Student o pid: 19868, otrzymał ocene: 4.5
+PID:19858 Student o pid: 19858 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19868 Student o pid: 19868 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:19838 Student o pid: 19838, dostal wszystkie pytania od komisji A
+PID:19862 Student o pid: 19862 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19850 Student o pid: 19850, dostal wszystkie pytania od komisji A
+PID:19842 Student o pid: 19842 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19843 Student o pid: 19843, dostal wszystkie pytania od komisji A
+PID:19863 Student o pid: 19863 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19838
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19838
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19862
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19862
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19838
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19862
+PID:19838 Student o pid: 19838, otrzymał ocene: 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19850
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19850
+PID:19862 Student o pid: 19862 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:19838 Student o pid: 19838 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19850
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19842
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19842
+PID:19850 Student o pid: 19850, otrzymał ocene: 3.5
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19843
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 2.0 studentowi o pid: 19843
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19842
+PID:19850 Student o pid: 19850 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19843
+PID:19842 Student o pid: 19842 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19843 Student o pid: 19843, otrzymał ocene: 2.0
+PID:19875 Student o pid: 19875, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19863
+PID:19843 Student o pid: 19843 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19863
+PID:19852 Student o pid: 19852, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19863
+PID:19873 Student o pid: 19873, dostal wszystkie pytania od komisji A
+PID:19863 Student o pid: 19863 skonczyl egzamin komisji B i otrzymal ocene 5.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19875
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19875
+PID:19870 Student o pid: 19870 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19875
+PID:19875 Student o pid: 19875, otrzymał ocene: 3.5
+PID:19866 Student o pid: 19866 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19875 Student o pid: 19875 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19852
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19852
+PID:19828 Student o pid: 19828 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19852
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19870
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19870
+PID:19852 Student o pid: 19852, otrzymał ocene: 4.5
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19873
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19873
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19870
+PID:19852 Student o pid: 19852 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19873
+PID:19870 Student o pid: 19870 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19873 Student o pid: 19873, otrzymał ocene: 4.0
+PID:19874 Student o pid: 19874, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19866
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19866
+PID:19873 Student o pid: 19873 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19845 Student o pid: 19845, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19866
+PID:19866 Student o pid: 19866 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19835 Student o pid: 19835, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19828
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19828
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19874
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19874
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19828
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19874
+PID:19828 Student o pid: 19828 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19874 Student o pid: 19874, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19845
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19845
+PID:19871 Student o pid: 19871 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19874 Student o pid: 19874 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19845
+PID:19868 Student o pid: 19868 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19845 Student o pid: 19845, otrzymał ocene: 3.5
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19835
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19835
+PID:19845 Student o pid: 19845 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:19838 Student o pid: 19838 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19835
+PID:19835 Student o pid: 19835, otrzymał ocene: 4.0
+PID:19835 Student o pid: 19835 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19871
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19871
+PID:19865 Student o pid: 19865, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19871
+PID:19871 Student o pid: 19871 skonczyl egzamin komisji B i otrzymal ocene 5.0
+PID:19864 Student o pid: 19864, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19868
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 2.0 studentowi o pid: 19868
+PID:19857 Student o pid: 19857, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19868
+PID:19868 Student o pid: 19868 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19865
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 5.0 studentowi o pid: 19865
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 2.0 studentowi o pid: 19838
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19838
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19865
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19838
+PID:19865 Student o pid: 19865, otrzymał ocene: 5.0
+PID:19838 Student o pid: 19838 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19864
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19864
+PID:19865 Student o pid: 19865 zdal egzamin praktyczny na ocene: 5.0 i ustawia się do komisji B
+PID:19850 Student o pid: 19850 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19864
+PID:19864 Student o pid: 19864, otrzymał ocene: 4.0
+PID:19864 Student o pid: 19864 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19857
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19857
+PID:19875 Student o pid: 19875 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19857
+PID:19857 Student o pid: 19857, otrzymał ocene: 5.0
+PID:19852 Student o pid: 19852 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19857 Student o pid: 19857 zdal egzamin praktyczny na ocene: 5.0 i ustawia się do komisji B
+PID:19846 Student o pid: 19846, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19850
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19850
+PID:19869 Student o pid: 19869, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19850
+PID:19850 Student o pid: 19850 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:19867 Student o pid: 19867, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19875
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19875
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 2.0 studentowi o pid: 19846
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 5.0 studentowi o pid: 19846
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 2.0 studentowi o pid: 19875
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.0 studentowi o pid: 19846
+PID:19875 Student o pid: 19875 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:19846 Student o pid: 19846, otrzymał ocene: 2.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19869
+PID:19846 Student o pid: 19846 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19852
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19852
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 2.0 studentowi o pid: 19869
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19852
+PID:19852 Student o pid: 19852 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19869
+PID:19873 Student o pid: 19873 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19869 Student o pid: 19869, otrzymał ocene: 2.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.5 studentowi o pid: 19867
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19867
+PID:19869 Student o pid: 19869 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:19874 Student o pid: 19874 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19867
+PID:19867 Student o pid: 19867, otrzymał ocene: 3.5
+PID:19845 Student o pid: 19845 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19867 Student o pid: 19867 zdal egzamin praktyczny na ocene: 3.5 i ustawia się do komisji B
+PID:19859 Student o pid: 19859, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19873
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 2.0 studentowi o pid: 19873
+PID:19876 Student o pid: 19876, dostal wszystkie pytania od komisji A
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19873
+PID:19839 Student o pid: 19839, dostal wszystkie pytania od komisji A
+PID:19873 Student o pid: 19873 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19859
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19859
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19874
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19874
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19859
+PID:19859 Student o pid: 19859, otrzymał ocene: 4.5
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19874
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19876
+PID:19859 Student o pid: 19859 zdal egzamin praktyczny na ocene: 4.5 i ustawia się do komisji B
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19876
+PID:19874 Student o pid: 19874 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 5.0 studentowi o pid: 19876
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19845
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19845
+PID:19876 Student o pid: 19876, otrzymał ocene: 4.0
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19839
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19845
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.0 studentowi o pid: 19839
+PID:19876 Student o pid: 19876 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:19845 Student o pid: 19845 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 2.0 studentowi o pid: 19839
+PID:19839 Student o pid: 19839, otrzymał ocene: 2.0
+PID:19835 Student o pid: 19835 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19839 Student o pid: 19839 wrocil do domu, bo nie zdal egzaminu Kommisji A
+PID:19849 Student o pid: 19849, dostal wszystkie pytania od komisji A
+PID:19865 Student o pid: 19865 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19860 Student o pid: 19860, dostal wszystkie pytania od komisji A
+PID:19864 Student o pid: 19864 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19872 Student o pid: 19872, dostal wszystkie pytania od komisji A
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19835
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19835
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.0 studentowi o pid: 19849
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 3.5 studentowi o pid: 19849
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19835
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.5 studentowi o pid: 19849
+PID:19835 Student o pid: 19835 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19849 Student o pid: 19849, otrzymał ocene: 4.0
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.0 studentowi o pid: 19860
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 4.5 studentowi o pid: 19860
+PID:19849 Student o pid: 19849 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 5.0 studentowi o pid: 19865
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19865
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 3.5 studentowi o pid: 19860
+PID:19860 Student o pid: 19860, otrzymał ocene: 4.0
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 2.0 studentowi o pid: 19865
+PID:19860 Student o pid: 19860 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20289 Czlonek 3 Komisji A zapisał ocene: 4.5 studentowi o pid: 19872
+PID:20289 Czlonek 2 Komisji A zapisał ocene: 3.0 studentowi o pid: 19872
+PID:19865 Student o pid: 19865 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:20289 Przewodniczacy Komisji A zapisał ocene: 4.0 studentowi o pid: 19872
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19864
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.5 studentowi o pid: 19864
+PID:20289 Komisja A czeka na otworzenie kolejki fifo od dziekana
+PID:19872 Student o pid: 19872, otrzymał ocene: 4.0
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.5 studentowi o pid: 19864
+PID:19872 Student o pid: 19872 zdal egzamin praktyczny na ocene: 4.0 i ustawia się do komisji B
+PID:20290 [KOMISJA B PRZEWODNICZACY] Nie obslużono jeszcze wszystkich studentów, obsluguje dalej
+PID:19864 Student o pid: 19864 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20289 Komisja A zapisała wyniku do fifo
+PID:19857 Student o pid: 19857 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20274 Dziekan zapisał dane od komisji A w tablicy tabWynik
+PID:20274 Dziekan czeka na otworzenie fifo przez Komisje B
+PID:19867 Student o pid: 19867 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19859 Student o pid: 19859 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19857
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.5 studentowi o pid: 19857
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19857
+PID:20290 [KOMISJA B PRZEWODNICZACY] Nie obslużono jeszcze wszystkich studentów, obsluguje dalej
+PID:19857 Student o pid: 19857 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.0 studentowi o pid: 19867
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 2.0 studentowi o pid: 19867
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19867
+PID:20290 [KOMISJA B PRZEWODNICZACY] Nie obslużono jeszcze wszystkich studentów, obsluguje dalej
+PID:19867 Student o pid: 19867 skonczyl egzamin komisji B i otrzymal ocene 2.0
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19859
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 4.0 studentowi o pid: 19859
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.5 studentowi o pid: 19859
+PID:19859 Student o pid: 19859 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20290 [KOMISJA B PRZEWODNICZACY] Nie obslużono jeszcze wszystkich studentów, obsluguje dalej
+PID:19876 Student o pid: 19876 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19849 Student o pid: 19849 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:19860 Student o pid: 19860 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19876
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19876
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 3.0 studentowi o pid: 19876
+PID:20290 [KOMISJA B PRZEWODNICZACY] Nie obslużono jeszcze wszystkich studentów, obsluguje dalej
+PID:19876 Student o pid: 19876 skonczyl egzamin komisji B i otrzymal ocene 4.0
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 4.0 studentowi o pid: 19849
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19849
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 5.0 studentowi o pid: 19849
+PID:20290 [KOMISJA B PRZEWODNICZACY] Nie obslużono jeszcze wszystkich studentów, obsluguje dalej
+PID:19849 Student o pid: 19849 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 5.0 studentowi o pid: 19860
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.5 studentowi o pid: 19860
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19860
+PID:20290 [KOMISJA B PRZEWODNICZACY] Nie obslużono jeszcze wszystkich studentów, obsluguje dalej
+PID:19860 Student o pid: 19860 skonczyl egzamin komisji B i otrzymal ocene 4.5
+PID:19872 Student o pid: 19872 otrzymal wszystkie pytania od komisji B i sie przygotowuje do odpowiedzi
+PID:20290 Czlonek 2 Komisji B zapisał ocene: 3.0 studentowi o pid: 19872
+PID:20290 Czlonek 3 Komisji B zapisał ocene: 3.5 studentowi o pid: 19872
+PID:20290 Przewodniczacy Komisji B zapisał ocene: 4.0 studentowi o pid: 19872
+PID:20290 [KOMISJA B PRZEWODNICZACY] Czekam na dziekana zeby fifo otworzyl
+PID:19872 Student o pid: 19872 skonczyl egzamin komisji B i otrzymal ocene 3.5
+PID:20290 Komisja B zapisala dane w fifo
+PID:20274 Dziekan odczytał wynik od komisji B i wczytał je do tablicy tabWynik
+PID:20274 Dziekan zapisał wyniki do pliku
