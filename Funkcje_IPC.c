@@ -29,15 +29,18 @@ typedef struct {            // struktura reprezentująca każdego studenta
 
 typedef struct {
     int flagakomA;
+    pid_t PidkomisjiA;
+    pid_t PidkomisjiB;
+    pid_t PidTworzenie_studentow;
     int Liczba_studentow_dokomB;
     int Komisjazakonczenie;
-    int students_count;          // to jest licznik który jest inkrementowany
-    int ilosc_studentow;         // a to jest ilość wylosowanych studentów(tak jakby warunek stopu)
+    int students_count;
+    int ilosc_studentow;
     int wybrany_kierunek;
-    int ilosc_osob_przepisujacych; // ile osob przepisuje ocene(ma zdany egz. prakt)
+    int ilosc_osob_przepisujacych;
     int index_stud;
     int ilosc_studentow_na_wybranym_kierunku;
-    Student students[MAX_STUD];  // Tablica struktur Student
+    Student students[MAX_STUD];
 } SHARED_MEMORY;
 
 typedef struct {
@@ -117,19 +120,19 @@ void koniec() {
 void Zapiszlog(const char* format, ...) {
     FILE *log_file = fopen("procesy.log", "a");
     if (log_file != NULL) {
-        // Wypisz PID procesu na początku
+        //wypisuje pid procesu n poczatku
         fprintf(log_file, "PID:%d ", getpid());
 
-        // Obsługa zmiennej liczby argumentów
+        // obsluguje zmienna ilosc argumentow
         va_list args;
         va_start(args, format);
         vfprintf(log_file, format, args);
         va_end(args);
 
-        fprintf(log_file, "\n"); // Nowa linia na końcu
+        fprintf(log_file, "\n"); // dodaje nowa linie
         fclose(log_file);
     } else {
-        perror("Failed to open log file");
+        perror("Blad w otwarciu pliku do logow\n");
     }
 }
 

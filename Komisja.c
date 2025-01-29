@@ -15,7 +15,11 @@
 
 void runKomisjaA();
 void runKomisjaB();
+void sigusr1_handler_komisjaA(int sig, siginfo_t *siginfo, void *context);
+void sigusr1_handler_komisjaB(int sig, siginfo_t *siginfo, void *context);
 
+volatile sig_atomic_t ewakuacja_komisjaA=0; // bezpieczne flagi do ewakuacji 
+volatile sig_atomic_t ewakuacja_komisjaB=0;
 
 pthread_t KAczlonek2, KAczlonek3;
 pthread_t KBczlonek2, KBczlonek3;
@@ -54,7 +58,7 @@ typedef struct {
     long mtype; 
     int pid_studenta;   
     int IDczlonkakomisji; 
-    int pytanie;   
+    char pytanie[MAX_Q_LENG];  
     int odpowiedz;  
 } Pytanie;
 
@@ -71,29 +75,12 @@ Kom_bufor msgKBCZ2;
 Kom_bufor msgKBCZ3;
 
 
-void sigint_handler(int sig){
-    (void)sig;
-    if (mainprogKomisjaA == getpid()) {
-        terminate_threads = 1;
-        flaga_komisjaA=1;
-
-        printf("[KOMISJA A] Otrzymano SIGINT: sygnalizuję zakończenie.\n");
-    } else {
-        flaga_komisjaB=1;
-
-        printf("[KOMISJA B] Otrzymano SIGINT: sygnalizuję zakończenie.\n");
-        wait(NULL);
-        wait(NULL);
-    }
-    return;
-}
-
 void* KA_czlonek2(void* arg){
     (void)arg;
 
     unsigned int seedcz2KA = time(NULL) ^ pthread_self();
 
-    while (!terminate_threads) {
+    while (!ewakuacja_komisjaA) {
     
         //czeka na informacje od Przewodniczacego na temat nowego studenta
         
@@ -115,12 +102,14 @@ void* KA_czlonek2(void* arg){
                 Pytanie PCZKA2;
 
                 //tutaj symulacja losowania i przygotowywania pytania
-                int PC2 = rand_r(&seedcz2KA) % 6 + 5;
+                //int PC2 = rand_r(&seedcz2KA) % 6 + 5;
                 //sleep(PC2);
 
 
                 PCZKA2.IDczlonkakomisji=CZ2KA;
-                PCZKA2.pytanie = PC2;
+                const char* wylos_pyt_KACZ2 = Wylosuj_pytanie_CZ2KA(seedcz2KA);
+                strncpy(PCZKA2.pytanie, wylos_pyt_KACZ2, MAX_Q_LENG - 1);
+                PCZKA2.pytanie[MAX_Q_LENG - 1] = '\0'; 
                 PCZKA2.mtype = msg.pidStudenta;
                 if((msgsnd(msgID, &PCZKA2,sizeof(Pytanie)-sizeof(long),0))== -1){
                     semafor_wait(semID,7);
@@ -190,7 +179,19 @@ void* KA_czlonek2(void* arg){
         }
             
     }
-    printf("[KOMISJA] Czlonek 2 Komisji A, zakonczyl swoja prace i wrocil do domu\n");
+
+    if(ewakuacja_komisjaA == 1){
+        printf("[KOMISJA A] Czlonek 2 komisji A ewakuowal sie pomyslnie\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA A] Czlonek 2 komisji A ewakuowal sie pomyslnie");
+        semafor_signal(semID,7);
+    }else{
+        printf("[KOMISJA A] Czlonek 2 komisji A zakonczyl swoja prace i wrocil do domu\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA A] Czlonek 2 komisji A zakonczyl swoja prace i wrocil do domu");
+        semafor_signal(semID,7);
+    }
+
     return NULL;
 }
 
@@ -199,7 +200,7 @@ void* KA_czlonek3(void* arg) {
 
     unsigned int seedcz3KA = time(NULL) ^ pthread_self();
 
-    while (!terminate_threads) { 
+    while (!ewakuacja_komisjaA) { 
         // czeka na informacje od Przewodniczacego na temat nowego studenta
         
         if((msgrcv(msgID, &powiadom, 0, CZ3KAALL, 0)) == -1){
@@ -221,11 +222,13 @@ void* KA_czlonek3(void* arg) {
                 Pytanie PCZKA3;
 
                 // tutaj symulacja losowania i przygotowywania pytania
-                int PC3 = rand_r(&seedcz3KA) % 6 + 5;
+                //int PC3 = rand_r(&seedcz3KA) % 6 + 5;
                 // sleep(PC3);
-
+                
+                const char* wylos_pyt_KACZ3 = Wylosuj_pytanie_CZ3KA(seedcz3KA);
+                strncpy(PCZKA3.pytanie, wylos_pyt_KACZ3, MAX_Q_LENG - 1);
+                PCZKA3.pytanie[MAX_Q_LENG - 1] = '\0'; 
                 PCZKA3.IDczlonkakomisji = CZ3KA;
-                PCZKA3.pytanie = PC3;
                 PCZKA3.mtype = msg.pidStudenta;
                 if((msgsnd(msgID, &PCZKA3, sizeof(Pytanie) - sizeof(long), 0))== -1){
                     semafor_wait(semID,7);
@@ -295,7 +298,18 @@ void* KA_czlonek3(void* arg) {
         
     }
 
-    printf("[KOMISJA] Czlonek 3 Komisji A, zakonczyl swoja prace i wrocil do domu\n");
+    if(ewakuacja_komisjaA == 1){
+        printf("[KOMISJA A] Czlonek 3 komisji A ewakuowal sie pomyslnie\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA A] Czlonek 3 komisji A ewakuowal sie pomyslnie");
+        semafor_signal(semID,7);
+    }else{
+        printf("[KOMISJA A] Przewodniczacy komisji A zakonczyl swoja prace i wrocil do domu\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA A] Przewodniczacy komisji A zakonczyl swoja prace i wrocil do domu");
+        semafor_signal(semID,7);
+    }
+
     return NULL;
 }
 
@@ -304,13 +318,17 @@ void runKomisjaA() {
     mainprogKomisjaA = getpid();
     unsigned int seed = time(NULL) ^ mainprogKomisjaA;
 
+    struct sigaction act_ewakuacja;
+    memset(&act_ewakuacja, 0, sizeof(act_ewakuacja));
+    act_ewakuacja.sa_sigaction = sigusr1_handler_komisjaA;
+    act_ewakuacja.sa_flags = SA_SIGINFO;
+    sigemptyset(&act_ewakuacja.sa_mask);
 
-    // Obsługa sygnału SIGINT
-    struct sigaction act;
-    act.sa_handler = sigint_handler;
-    sigemptyset(&act.sa_mask);
-    act.sa_flags = 0;
-    sigaction(SIGINT, &act, 0);
+    if (sigaction(SIGUSR1, &act_ewakuacja, NULL) == -1) {
+        perror("[KOMISJA A] Blad ustawienia sigaction dla SIGUSR1");
+        exit(EXIT_FAILURE);
+    }
+
 
     utworz_klucze();
     semID = semget(kluczs, 9, 0666); 
@@ -339,6 +357,7 @@ void runKomisjaA() {
 
     // Oczekiwanie na liczbę studentów i przepisujących
     semafor_wait(semID, 4); // czeka na sygnal od dziekana
+    shm_ptr->PidkomisjiA = mainprogKomisjaA;
     shm_ptr->Liczba_studentow_dokomB=shm_ptr->ilosc_studentow_na_wybranym_kierunku; 
     Liczba_przepisujacych = shm_ptr->ilosc_osob_przepisujacych;
     Liczba_studentow_do_zegzaminowania = shm_ptr->ilosc_studentow_na_wybranym_kierunku;
@@ -374,7 +393,7 @@ void runKomisjaA() {
     } OcenyStud;
     OcenyStud OcenyKA[MAX_SIZE_OCENY];
 
-    while (!terminate_threads) {
+    while (!ewakuacja_komisjaA) {
 
         // Odbieram wiadomość od studenta 
         
@@ -496,7 +515,6 @@ void runKomisjaA() {
                     break;
                 }
 
-
             }else{ // tutaj, gdy student chce pytania
 
 
@@ -520,12 +538,13 @@ void runKomisjaA() {
                 Pytanie PPKA;
 
                 //tutaj symulacja losowania i przygotowywania pytania
-                int PP = rand_r(&seed) % 6 + 5;
+                //int PP = rand_r(&seed) % 6 + 5;
                     
                 //sleep(PP);
-
+                const char* wylos_pyt_PKA = Wylosuj_pytanie_PKA(seed);
+                strncpy(PPKA.pytanie, wylos_pyt_PKA, MAX_Q_LENG - 1);
+                PPKA.pytanie[MAX_Q_LENG - 1] = '\0'; 
                 PPKA.IDczlonkakomisji=PKA;
-                PPKA.pytanie = PP;
                 PPKA.mtype = msg.pidStudenta;
                 if((msgsnd(msgID, &PPKA,sizeof(Pytanie)-sizeof(long),0)) == -1){
                     semafor_wait(semID,7);
@@ -553,7 +572,6 @@ void runKomisjaA() {
                     exit(EXIT_FAILURE);
                 }
                 
-
             }
 
         }else{
@@ -699,12 +717,57 @@ void runKomisjaA() {
         
                 break;
             }
-
         }
                     
     }
 
+
     // ========== Kończenie pracy komisji A ==========
+
+    if(ewakuacja_komisjaA == 1){
+        semafor_wait(semID,7);
+        Zapiszlog("Komisja A rozpoczela ewakuacje i wysyla oceny do dziekana");
+        semafor_signal(semID,7);
+        semafor_signal(semID,8);
+
+        int fd = open(FIFO_PATH, O_WRONLY);
+        if (fd == -1) {
+            perror("blad open FIFO\n");
+            exit(1);
+        }
+
+        char buffer[4096];
+        int bufferIndex = 0;
+
+        for (int i = 0; i < counter1; i++) {
+            // wypiszemy teraz: indeks, pid, ocenaPrzew, ocenaCz2, ocenaCz3, średnia
+            int len = snprintf(
+                buffer + bufferIndex,
+                sizeof(buffer) - bufferIndex,
+                "%d %.1f %.1f %.1f %.1f\n",
+                OcenyKA[i].pid,
+                OcenyKA[i].ocenaPrzew,
+                OcenyKA[i].ocenaCz2,
+                OcenyKA[i].ocenaCz3,
+                OcenyKA[i].srednia
+            );
+            bufferIndex += len;
+        }
+
+        write(fd, buffer, bufferIndex);
+        close(fd);
+        semafor_wait(semID,7);
+        Zapiszlog("Komisja A skonczyla wysylac dane do dziekana i ucieka z budynku");
+        semafor_signal(semID,7);
+        Krotkie_powiadomienie ew;
+        ew.mtype = EWAK;
+        if((msgsnd(msgID, &ew, 0,0)) == -1){
+            semafor_wait(semID,7);
+            handle_msgsnd_error_with_logging(Zapiszlog);
+            semafor_signal(semID,7);
+        }
+
+    }
 
     if (pthread_join(KAczlonek2, NULL) != 0) {
         perror("Blad przy joinie czlonka 2 komisji A\n");
@@ -717,7 +780,19 @@ void runKomisjaA() {
     pthread_mutex_destroy(&mutexA2);
 
     shmdt(shm_ptr);
-    printf("[KOMISJA A] Zakonczyl sie program Komisja A\n");
+
+    if(ewakuacja_komisjaA == 1){
+        printf("[KOMISJA A] Przewodniczacy komisji A ewakuowal sie pomyslnie\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA A] Przewodniczacy komisji A ewakuowal sie pomyslnie");
+        semafor_signal(semID,7);
+    }else{
+        printf("[KOMISJA A] Przewodniczacy komisji A zakonczyl swoja prace i wrocil do domu\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA A] Przewodniczacy komisji A zakonczyl swoja prace i wrocil do domu");
+        semafor_signal(semID,7);
+    }
+
     return;
 }
 
@@ -726,7 +801,7 @@ void* KB_czlonek2(void* arg) {
 
     unsigned int seedcz2KB = time(NULL) ^ pthread_self();
     
-    while(!terminate_threads){
+    while(!ewakuacja_komisjaB){
         // czeka na informacje od Przewodniczacego na temat nowego studenta
         
         if((msgrcv(msgID, &powiadomB, 0, CZ2KBALL, 0)) == -1){
@@ -745,11 +820,12 @@ void* KB_czlonek2(void* arg) {
             Pytanie PCZKB2;
 
             // tutaj symulacja losowania i przygotowywania pytania
-            int bPC2 = rand_r(&seedcz2KB) % 6 + 5;
+            //int bPC2 = rand_r(&seedcz2KB) % 6 + 5;
             // sleep(bPC2);
-
+            const char* wylos_pyt_KBCZ2 = Wylosuj_pytanie_CZ2KB(seedcz2KB);
+            strncpy(PCZKB2.pytanie, wylos_pyt_KBCZ2, MAX_Q_LENG - 1);
+            PCZKB2.pytanie[MAX_Q_LENG - 1] = '\0'; 
             PCZKB2.IDczlonkakomisji = CZ2KB;
-            PCZKB2.pytanie = bPC2;
             PCZKB2.mtype = msgKBCZ2.pidStudenta;
             if ((msgsnd(msgID, &PCZKB2, sizeof(Pytanie) - sizeof(long), 0))== -1){
                 semafor_wait(semID,7);
@@ -802,8 +878,18 @@ void* KB_czlonek2(void* arg) {
         }
 
     }
+    if(ewakuacja_komisjaB == 1){
+        printf("Czlonek 2 komisji B ewakuowal sie pomyslnie\n");
+        semafor_wait(semID,7);
+        Zapiszlog("Czlonek 2 komisji B ewakuowal sie pomyslnie");
+        semafor_signal(semID,7);
+    }else{
+        printf("[KOMISJA] Czlonek 2 Komisji B, zakonczyl swoja prace i wrocil do domu\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA] Czlonek 2 Komisji B, zakonczyl swoja prace i wrocil do domu");
+        semafor_signal(semID,7);
+    }
     
-    printf("[KOMISJA] Czlonek 2 Komisji B, zakonczyl swoja prace i wrocil do domu\n");
     return NULL;
 }
 
@@ -812,7 +898,7 @@ void* KB_czlonek3(void* arg) {
 
     unsigned int seedcz3KB = time(NULL) ^ pthread_self();
 
-    while(!terminate_threads){
+    while(!ewakuacja_komisjaB){
 
         // czeka na informacje od Przewodniczacego na temat nowego studenta
         
@@ -833,11 +919,12 @@ void* KB_czlonek3(void* arg) {
             Pytanie PCZKB3;
 
             // tutaj symulacja losowania i przygotowywania pytania
-            int bPC3 = rand_r(&seedcz3KB) % 6 + 5;
+            //int bPC3 = rand_r(&seedcz3KB) % 6 + 5;
             // sleep(bPC3);
-
+            const char* wylos_pyt_KBCZ3 = Wylosuj_pytanie_CZ3KB(seedcz3KB);
+            strncpy(PCZKB3.pytanie, wylos_pyt_KBCZ3, MAX_Q_LENG - 1);
+            PCZKB3.pytanie[MAX_Q_LENG - 1] = '\0'; 
             PCZKB3.IDczlonkakomisji = CZ3KB;
-            PCZKB3.pytanie = bPC3;
             PCZKB3.mtype = msgKBCZ3.pidStudenta;
             if((msgsnd(msgID, &PCZKB3, sizeof(Pytanie) - sizeof(long), 0)) == -1){
                 semafor_wait(semID,7);
@@ -892,7 +979,18 @@ void* KB_czlonek3(void* arg) {
         }
         
     }
-    printf("[KOMISJA] Czlonek 3 Komisji B, zakonczyl swoja prace i wrocil do domu\n");
+    if(ewakuacja_komisjaB == 1){
+        printf("[KOMISJA B] Czlonek 3 komisji B ewakuowal sie pomyslnie\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA B] Czlonek 3 komisji B ewakuowal sie pomyslnie");
+        semafor_signal(semID,7);
+    }else{
+        printf("[KOMISJA B] Czlonek 3 komisji B zakonczyl swoja prace i wrocil do domu\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA B] Czlonek 3 komisji B zakonczyl swoja prace i wrocil do domu");
+        semafor_signal(semID,7);
+    }
+
     return NULL;
 }
 
@@ -901,12 +999,16 @@ void runKomisjaB() {
     mainprogKomisjaB = getpid();
     unsigned int seedB = time(NULL) ^ mainprogKomisjaB;
 
-    // Obsługa sygnału SIGINT
-    struct sigaction act;
-    act.sa_handler = sigint_handler;
-    sigemptyset(&act.sa_mask);
-    act.sa_flags = 0;
-    sigaction(SIGINT, &act, 0);
+    struct sigaction act_ewakuacja;
+    memset(&act_ewakuacja, 0, sizeof(act_ewakuacja));
+    act_ewakuacja.sa_sigaction = sigusr1_handler_komisjaB;
+    act_ewakuacja.sa_flags = SA_SIGINFO;
+    sigemptyset(&act_ewakuacja.sa_mask);
+
+    if (sigaction(SIGUSR1, &act_ewakuacja, NULL) == -1) {
+        perror("[KOMISJA B] Blad ustawienia sigaction dla SIGUSR1");
+        exit(EXIT_FAILURE);
+    }
 
     utworz_klucze();
     semID = semget(kluczs, 9, 0666); 
@@ -943,6 +1045,7 @@ void runKomisjaB() {
         perror("Blad przy inicjowaniu watku czlonka 3 Komisji B\n");
         exit(EXIT_FAILURE);
     }
+    shm_ptr->PidkomisjiB = mainprogKomisjaB;
 
     semafor_wait(semID,4);
     int counterKB = 0;
@@ -958,7 +1061,7 @@ void runKomisjaB() {
 
 
     int Liczba_stud_obsluzonych=0;
-    while (!terminate_threads) {
+    while (!ewakuacja_komisjaB) {
         
         printf("Liczba stud obsluzonych: %d, Liczba stud do zegzaminowania: %d\n",Liczba_stud_obsluzonych,shm_ptr->Liczba_studentow_dokomB);
 
@@ -997,12 +1100,13 @@ void runKomisjaB() {
             Pytanie PPKB;
 
             //tutaj symulacja losowania i przygotowywania pytania
-            int PPB = rand_r(&seedB) % 6 + 5;
+            //int PPB = rand_r(&seedB) % 6 + 5;
 
             //sleep(PP);
-
+            const char* wylos_pyt_PKB = Wylosuj_Pytanie_PKB(seedB);
+            strncpy(PPKB.pytanie, wylos_pyt_PKB, MAX_Q_LENG - 1);
+            PPKB.pytanie[MAX_Q_LENG - 1] = '\0'; 
             PPKB.IDczlonkakomisji=PKB;
-            PPKB.pytanie = PPB;
             PPKB.mtype = msgKB.pidStudenta;
 
             if((msgsnd(msgID, &PPKB,sizeof(Pytanie)-sizeof(long),0)) == -1){
@@ -1183,6 +1287,50 @@ void runKomisjaB() {
         }
     }
     
+    if(ewakuacja_komisjaB == 1){
+        //wysylam oceny dziekanowi w czasie ewakuacji
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA B PRZEWODNICZACY] Czekam na dziekana zeby fifo otworzyl podczas ewakuacji");
+        semafor_signal(semID,7);
+        Krotkie_powiadomienie ewB;
+        if((msgrcv(msgID, &ewB,0,EWAK,0)) == -1){
+            semafor_wait(semID,7);
+            handle_msgrcv_error_with_logging(Zapiszlog);
+            semafor_signal(semID,7);
+        }
+
+        int fd2 = open(FIFO_PATH2, O_WRONLY);
+        if (fd2 == -1) {
+            perror("blad open FIFO w ewakuacji \n");
+            Zapiszlog("Blad open fifo w Komisji B");
+            exit(1);
+        }
+
+        char buffer2[4096];
+        int bufferIndexB = 0;
+
+        for (int i = 0; i < counterKB; i++) {
+            // wypiszemy teraz: pid, ocenaPrzew, ocenaCz2, ocenaCz3, średnia
+            int len = snprintf(
+                buffer2 + bufferIndexB,
+                sizeof(buffer2) - bufferIndexB,
+                "%d %.1f %.1f %.1f %.1f\n",
+                OcenyKB[i].pid,
+                OcenyKB[i].ocenaPrzew,
+                OcenyKB[i].ocenaCz2,
+                OcenyKB[i].ocenaCz3,
+                OcenyKB[i].srednia
+            );
+            bufferIndexB += len;
+        }
+        printf("[Komisja B] przewodniczacy komisji B zapisuje %d ocen do FIFO_PATH2 w czasie ewakuacji\n", counterKB);
+        semafor_wait(semID,7);
+        Zapiszlog("[Komisja B] zapisala dane w fifo w czasie ewakuacji");
+        semafor_signal(semID,7);
+        write(fd2, buffer2, bufferIndexB);
+        close(fd2);
+    }
+
 
     if (pthread_join(KBczlonek2, NULL) != 0) {
         perror("Blad przy joinie czlonka 2 komisji B\n");
@@ -1197,8 +1345,38 @@ void runKomisjaB() {
     semafor_signal(semID,8); // daje znać dziekanowi że może już czyścić zasoby
     shmdt(shm_ptr);
     //tutaj konczy dzialanie komisja B
-    printf("[KOMISJA B] Komisja B (TO TEORIA) zakonczyla dzialanie\n");
+
+    if(ewakuacja_komisjaB == 1){
+        printf("[KOMISJA B] Przewodniczacy komisji B ewakuowal sie pomyslnie\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA B] Przewodniczacy komisji B ewakuowal sie pomyslnie");
+        semafor_signal(semID,7);
+    }else{
+        printf("[KOMISJA B] Przewodniczacy komisji B zakonczyl swoja prace i wrocil do domu\n");
+        semafor_wait(semID,7);
+        Zapiszlog("[KOMISJA B] Przewodniczacy komisji B zakonczyl swoja prace i wrocil do domu");
+        semafor_signal(semID,7);
+    }
+
     return;
+}
+
+void sigusr1_handler_komisjaA(int sig, siginfo_t *siginfo, void *context) {
+    (void)sig;
+    (void)siginfo;
+    (void)context; // zeby sie kompilator nie czepiał
+    ewakuacja_komisjaA = 1;
+    Zapiszlog("[Komisja A] Otrzymano sygnał SIGUSR1");
+    printf("[KOMISJA A] Otrzymano sygnał ewakuacji (SIGUSR1).\n");
+}
+
+void sigusr1_handler_komisjaB(int sig, siginfo_t *siginfo, void *context) {
+    (void)sig;
+    (void)siginfo;
+    (void)context; //zeby sie kompilator nie czepiał
+    ewakuacja_komisjaB = 1;
+    Zapiszlog("[Komisja B] Otrzymano sygnał SIGUSR1");
+    printf("[KOMISJA B] Otrzymano sygnał ewakuacji (SIGUSR1).\n");
 }
 
 
@@ -1244,7 +1422,11 @@ int main(int argc, char *argv[])
         wait(NULL);
         wait(NULL);
 
-        printf("[MAIN] Obie komisje zakończyły egzamin.\n");
+        if(ewakuacja_komisjaA == 1 && ewakuacja_komisjaB == 1){
+            printf("[MAIN - Komisja] Obie komisje Pomyslnie sie ewakuowaly\n"); 
+        }else{
+            printf("[MAIN - Komisja] Obie komisje zakończyły egzamin.\n");
+        }
         return 0;
     }
 

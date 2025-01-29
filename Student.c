@@ -15,7 +15,7 @@ typedef struct{
 }Wiadomosc_zocena;
 
 
-typedef struct{ //struktura komunikatu
+typedef struct{ 
 	long mtype;
     float ocena_koncowa;
     int pidStudenta;
@@ -25,13 +25,13 @@ typedef struct{ //struktura komunikatu
     int zdaje_czy_pytania; // jak zdaje to 1, jak pytania to 0
 }Kom_bufor;
 
-typedef struct{
+typedef struct {
     long mtype; 
     int pid_studenta;   
     int IDczlonkakomisji; 
-    int pytanie;   
+    char pytanie[MAX_Q_LENG];  
     int odpowiedz;  
-}Pytanie;
+} Pytanie;
 
 int inicjalizacja_studenta(int student_id, int kierunek, int powtarzaEgzamin) {
     //Przygotowuje nowego studenta
@@ -72,10 +72,30 @@ int inicjalizacja_studenta(int student_id, int kierunek, int powtarzaEgzamin) {
     }
 
     //printf("Student %d o pid:%d zakonczyl inicjalizaje\n",student_id, getpid());
+    
     return index1;
 }
 
+void handle_sigusr1(int sig) {
+    (void)sig; 
+    semafor_wait(semID,7);
+    Zapiszlog("Student o pid: %d ewakuowal się",getpid());
+    semafor_signal(semID,7);
+    exit(EXIT_SUCCESS); // Natychmiastowe zakończenie procesu
+}
+
 int main(int argc, char *argv[]) {
+
+    struct sigaction sa_usr1;
+    memset(&sa_usr1, 0, sizeof(sa_usr1));
+    sa_usr1.sa_handler = handle_sigusr1; 
+    sigemptyset(&sa_usr1.sa_mask);        
+    sa_usr1.sa_flags = 0;                  
+
+    if (sigaction(SIGUSR1, &sa_usr1, NULL) == -1) {
+        perror("[STUDENT] Blad ustawienia sigaction dla SIGUSR1");
+        exit(EXIT_FAILURE);
+    }
 
     if (argc < 6) {
         fprintf(stderr, "Użycie: %s semID msgID shmID student_id kierunek\n", argv[0]);
@@ -104,7 +124,7 @@ int main(int argc, char *argv[]) {
     }
 
     semafor_wait(semID,7);
-    //Zapiszlog("Student %d o pid: %d pojawił się przed budynkiem i czeka w kolejce na wejscie", student_id, getpid());
+    Zapiszlog("Student pojawił się przed budynkiem i czeka w kolejce na wejscie");
     //printf("Student %d o pid: %d pojawił się przed budynkiem i czeka w kolejce na wejscie\n", student_id, getpid());
     semafor_signal(semID,7);
 
@@ -122,7 +142,7 @@ int main(int argc, char *argv[]) {
     if(kierunek != shm_ptr->wybrany_kierunek){
         semafor_signal(semID,0);
         semafor_wait(semID,7);
-        //Zapiszlog("Student o pid %d wrocil do domu, poniewaz egzamin nie dotyczy jego kierunku",getpid());
+        Zapiszlog("Student o pid %d wrocil do domu, poniewaz egzamin nie dotyczy jego kierunku",getpid());
         semafor_signal(semID,7);
         //printf("Student %d o pid: %d, wrocil do domu, poniewaz egzamin nie dotyczy jego kierunku\n",student_id ,getpid());
         return 0;
@@ -135,7 +155,7 @@ int main(int argc, char *argv[]) {
     //tutaj inicjalizacja we wspolnej pamieci danych studentów którzy zdają egzamin 
     int curr_indx = inicjalizacja_studenta(student_id, kierunek, powtarzaEgzamin);
     semafor_wait(semID,7);
-    //Zapiszlog("Student o pid: %d zakonczyl inicjalizacje danych",getpid());
+    Zapiszlog("Student zakonczyl inicjalizacje");
     semafor_signal(semID,7);
     //printf("Student o pid: %d zainicijalizowal sie\n",getpid());
     semafor_signal(semID,0);
@@ -229,10 +249,22 @@ int main(int argc, char *argv[]) {
                 // Zidentyfikowanie wiadomości od którego członka pytanie
                 if (msg.IDczlonkakomisji == PKA) {
                     pyt1 = msg; //czyli to jest pytanie od przewodniczacego
+                    semafor_wait(semID,7);
+                    Zapiszlog("Student otrzymal od Przewodniczacego komisji A Pytanie o tresci: %s",
+                    msg.pytanie);
+                    semafor_signal(semID,7);
                 } else if (msg.IDczlonkakomisji == CZ2KA) {
                     pyt2 = msg; // to jest od członka 2
+                    semafor_wait(semID,7);
+                    Zapiszlog("Student otrzymal od Czlonka 2 Komisji A Pytanie o tresci: %s",
+                    msg.pytanie);
+                    semafor_signal(semID,7);
                 } else if (msg.IDczlonkakomisji == CZ3KA) {
                     pyt3 = msg; // a to od czlonka 3
+                    semafor_wait(semID,7);
+                    Zapiszlog("Student otrzymal od Czlonka 3 Komisji A Pytanie o tresci: %s",
+                    msg.pytanie);
+                    semafor_signal(semID,7);
                 } else{
                     perror("nieznana wiadomosc odebrana w Stud->od kom.A\n");
                 }
@@ -378,10 +410,22 @@ int main(int argc, char *argv[]) {
             // Zidentyfikowanie wiadomości od którego członka pytanie
             if (msg2.IDczlonkakomisji == PKB) {
                 pyt4 = msg2; //czyli to jest pytanie od przewodniczacego
+                semafor_wait(semID,7);
+                Zapiszlog("Student otrzymal od Przewodniczacego Komisji B Pytanie o tresci: %s",
+                msg2.pytanie);
+                semafor_signal(semID,7);
             } else if (msg2.IDczlonkakomisji == CZ2KB) {
                 pyt5 = msg2; // to jest od członka 2
+                semafor_wait(semID,7);
+                Zapiszlog("Student otrzymal od Czlonka 2 Komisji B Pytanie o tresci: %s",
+                msg2.pytanie);
+                semafor_signal(semID,7);
             } else  {
                 pyt6 = msg2; // a to od czlonka 3
+                semafor_wait(semID,7);
+                Zapiszlog("Student otrzymal od Czlonka 3 Komisji B Pytanie o tresci: %s",
+                msg2.pytanie);
+                semafor_signal(semID,7);
             } 
             pytaniaodebrane++;
         }

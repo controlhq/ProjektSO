@@ -22,32 +22,13 @@ typedef struct{
     long mtype;
 }Krotkie_powiadomienie;
 
-typedef struct{ //struktura komunikatu
-	long mtype;
-    float ocena_koncowa;
-    int pidStudenta;
-    int czy_zdane;
-    int index_studenta;
-    int id_studenta;
-    int zdaje_czy_pytania; // jak zdaje to 1, jak pytania to 0
-}Kom_bufor;
-
-typedef struct{
-    long mtype; 
-    int pid_studenta;   
-    int IDczlonkakomisji; 
-    int pytanie;   
-    int odpowiedz;  
-}Pytanie;
-
-void sigint_handler(int sig){
+void sigusr1_handler(int sig){
     if(mainprogstud == getpid()){
-        printf("Odebrano sygnal intsig w tworzenie studentow: %d\n",sig);
+        printf("Odebrano sygnal SIGUSR1 w tworzenie studentow: %d\n",sig);
         while(wait(NULL)>0);
-        return;
+        exit(EXIT_SUCCESS);
     }
 }
-
 
 int main()
 {
@@ -55,12 +36,15 @@ int main()
     mainprogstud = getpid();
     unsigned int seedT = time(NULL) ^ mainprogstud;
 
-    //obsluga sygnalu sigint
+    //obsluga sygnalu SIGUSR1
     struct sigaction act;
-    act.sa_handler = sigint_handler;
+    act.sa_handler = sigusr1_handler;
     sigemptyset(&act.sa_mask);
-    act.sa_flags=0;
-    sigaction(SIGINT,&act,0);
+    act.sa_flags = 0;
+    if(sigaction(SIGUSR1, &act, NULL) == -1){
+        perror("Blad sigaction");
+        exit(EXIT_FAILURE);
+    }
     
     utworz_klucze();
 
@@ -116,6 +100,7 @@ int main()
     int liczba_studentow = lsKierunek_1 + lsKierunek_2 + lsKierunek_3 + lsKierunek_4 + lsKierunek_5;
 
     semafor_wait(semID,0);
+    shm_ptr->PidTworzenie_studentow = mainprogstud;
     shm_ptr->flagakomA=0;
     shm_ptr->Liczba_studentow_dokomB=0;
     shm_ptr->students_count=0; //inicjalizacja counta na 0
@@ -138,7 +123,6 @@ int main()
     if (liczba_studentow > MAX_STUDENTOW)
     {
         printf("Przekroczona maksymalna liczba studentow\n");
-        koniec();
         exit(EXIT_FAILURE);
     }
 
@@ -156,7 +140,7 @@ int main()
             
             pid_t pid = fork();
             if (pid < 0) {
-                perror("Blad forka\n");
+                perror("[Tworzenie_studentow] Blad forka\n");
                 koniec();
                 exit(EXIT_FAILURE);
             } else if (pid == 0) {

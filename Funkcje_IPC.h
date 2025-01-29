@@ -17,8 +17,10 @@
 #define MAX_STUDENTOW 800   // maksymalna ilość studentów 2 roku (160*5)
 #define MAX_STUD 160        // do pamieci wspódzielonej maksymalna ilosc studentow
 #define MAX_SIZE_OCENY 200
+#define MAX_Q_LENG 150
 
 //indentyfikatory komunikatów dla kolejnych czlonków komisji A
+#define EWAK 1904
 #define PKA 449
 #define CZ2KA 450
 #define CZ3KA 451
@@ -53,6 +55,9 @@ typedef struct {            // struktura reprezentująca każdego studenta
 // pamiec dzielona
 typedef struct {
     int flagakomA;
+    pid_t PidkomisjiA;
+    pid_t PidkomisjiB;
+    pid_t PidTworzenie_studentow;
     int Liczba_studentow_dokomB;
     int Komisjazakonczenie;
     int students_count;
