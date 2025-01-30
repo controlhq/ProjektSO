@@ -79,7 +79,11 @@ void utworz_klucze() {
 void semafor_wait(int semid, int sem_num) {
     struct sembuf sem = {sem_num, -1, 0};
     if (semop(semid, &sem, 1) == -1) {
-        perror("Blad semafor_wait");
+        if(errno == EINTR){
+           semop(semid, &sem, 1);
+        }else{
+            perror("Blad semafor_wait");
+        }
         exit(EXIT_FAILURE);
     }
 }
