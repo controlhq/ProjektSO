@@ -1,6 +1,3 @@
-# ProjektSO
-Projekt Systemy Operacyjne - Egzamin
-
 # Exam Simulator - Inter-Process Communication (IPC)
 
 Projekt zrealizowany w ramach przedmiotu Systemy Operacyjne, symulujący złożony proces egzaminowania studentów. Głównym celem projektu jest praktyczne zastosowanie mechanizmów wieloprocesowości, wielowątkowości oraz komunikacji międzyprocesowej (IPC) w systemach klasy UNIX (POSIX).
